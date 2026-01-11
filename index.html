@@ -17,40 +17,30 @@
         body {
             font-family: 'Quicksand', sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
             color: #fff;
             overflow-x: hidden;
         }
 
-        /* Floating particles */
-        .particles {
+        .video-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
+            object-fit: cover;
+            z-index: -2;
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 215, 0, 0.6);
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out;
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-        }
-
-        /* Main container */
         .container {
             position: relative;
             z-index: 1;
@@ -62,19 +52,18 @@
             padding: 40px 20px;
         }
 
-        /* Profile card */
         .card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 30px;
             padding: 50px 40px;
             max-width: 450px;
             width: 100%;
             text-align: center;
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.3),
-                0 0 100px rgba(255, 140, 0, 0.1);
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 100px rgba(255, 140, 0, 0.15);
             animation: fadeInUp 1s ease-out;
         }
 
@@ -89,7 +78,6 @@
             }
         }
 
-        /* Avatar */
         .avatar-container {
             position: relative;
             width: 180px;
@@ -121,10 +109,9 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #1a1a2e;
+            border: 4px solid rgba(20, 20, 35, 0.8);
         }
 
-        /* Name */
         .name {
             font-size: 2.2rem;
             font-weight: 700;
@@ -138,25 +125,23 @@
         .jp-name {
             font-family: 'Noto Sans JP', sans-serif;
             font-size: 1rem;
-            color: rgba(255, 215, 0, 0.7);
+            color: rgba(255, 215, 0, 0.8);
             margin-bottom: 25px;
             letter-spacing: 3px;
         }
 
-        /* Quote */
         .quote {
             font-size: 1rem;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
             padding: 20px;
-            background: rgba(255, 140, 0, 0.1);
+            background: rgba(255, 140, 0, 0.15);
             border-radius: 15px;
             border-left: 3px solid #FFD700;
             margin-bottom: 30px;
         }
 
-        /* Interests */
         .interests {
             display: flex;
             justify-content: center;
@@ -166,8 +151,8 @@
         }
 
         .tag {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 140, 0, 0.25));
+            border: 1px solid rgba(255, 215, 0, 0.4);
             padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -176,11 +161,10 @@
         }
 
         .tag:hover {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(255, 140, 0, 0.4));
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.5), rgba(255, 140, 0, 0.5));
             transform: translateY(-2px);
         }
 
-        /* Social links */
         .socials {
             display: flex;
             justify-content: center;
@@ -199,12 +183,12 @@
             font-weight: 600;
             font-size: 0.95rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.3);
+            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.4);
         }
 
         .social-link:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.6);
         }
 
         .social-link svg {
@@ -212,37 +196,20 @@
             height: 20px;
         }
 
-        /* Mahiru image */
-        .mahiru-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 150px;
-            border-radius: 20px;
-            opacity: 0.9;
-            animation: floatMahiru 4s ease-in-out infinite;
-            box-shadow: 0 10px 40px rgba(255, 140, 0, 0.3);
-        }
-
-        @keyframes floatMahiru {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* Footer */
         .footer {
             position: fixed;
             bottom: 20px;
-            left: 20px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.4);
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .footer span {
             color: #FFD700;
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             .card {
                 padding: 35px 25px;
@@ -250,56 +217,35 @@
             .name {
                 font-size: 1.8rem;
             }
-            .mahiru-float {
-                width: 100px;
-                bottom: 10px;
-                right: 10px;
-            }
-            .footer {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating particles -->
-    <div class="particles">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 80%; animation-delay: 0.5s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 3.5s;"></div>
-    </div>
+    <video class="video-bg" autoplay muted loop playsinline>
+        <source src="bg.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
 
     <div class="container">
         <div class="card">
-            <!-- Avatar -->
             <div class="avatar-container">
                 <div class="avatar-ring"></div>
-                <img src="https://i.pinimg.com/736x/a6/54/89/a65489cfa994f4a9a51867688cffc816.jpg" alt="Mahiru" class="avatar">
+                <img src="avatar.jpg" alt="Mahiru" class="avatar">
             </div>
 
-            <!-- Name -->
             <h1 class="name">Samuray43k</h1>
             <p class="jp-name">天使様 ✦ Tenshi-sama</p>
 
-            <!-- Quote -->
             <blockquote class="quote">
                 „Bitte... ich bin doch nicht allein? Du bist doch meine Rettung?"
             </blockquote>
 
-            <!-- Interests -->
             <div class="interests">
                 <span class="tag">🤖 AI</span>
                 <span class="tag">👼 Mahiru</span>
                 <span class="tag">🎌 Anime</span>
             </div>
 
-            <!-- Socials -->
             <div class="socials">
                 <a href="https://t.me/HolyZxc" class="social-link" target="_blank">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -311,10 +257,6 @@
         </div>
     </div>
 
-    <!-- Floating Mahiru -->
-    <img src="https://media1.tenor.com/m/ESOLTMd61_gAAAAd/mahiru-shiina-the-angel-next-door-spoils-me-rotten.gif" alt="Mahiru" class="mahiru-float">
-
-    <!-- Footer -->
     <div class="footer">
         Made with <span>♡</span> for <span>天使様</span>
     </div>
