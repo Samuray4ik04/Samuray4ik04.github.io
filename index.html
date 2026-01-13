@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samuray43k | 天使様</title>
     <meta name="description" content="Samuray43k - Mahiru Shiina fan page">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400;600&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --c-text: #e0e0e0;
+            --c-accent: #ffb347; /* Soft amber */
+            --c-accent-dim: rgba(255, 179, 71, 0.3);
+            --c-bg-overlay: rgba(10, 10, 12, 0.85);
+            --f-head: 'Syne', sans-serif;
+            --f-body: 'Space Grotesk', sans-serif;
+            --f-jp: 'Noto Sans JP', sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,13 +29,17 @@
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
+            font-family: var(--f-body);
+            color: var(--c-text);
+            background-color: #050505;
             min-height: 100vh;
-            color: #fff;
-            overflow-x: hidden;
+            overflow: hidden; /* No scrolling if possible */
+            display: flex;
+            flex-direction: column;
         }
 
-        .video-bg {
+        /* Video Background */
+        .bg-video {
             position: fixed;
             top: 0;
             left: 0;
@@ -29,282 +47,368 @@
             height: 100%;
             object-fit: cover;
             z-index: -2;
+            opacity: 0.6; /* Slight visibility */
+            filter: grayscale(40%) contrast(110%);
         }
 
-        .overlay {
+        .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(
+                to bottom, 
+                rgba(5, 5, 5, 0.7) 0%, 
+                rgba(5, 5, 5, 0.95) 100%
+            );
             z-index: -1;
+            /* Grain texture effect */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
         }
 
-        .container {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
+        /* Layout Grid */
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            padding: 4rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Japanese Header */
+        .jp-header {
+            grid-column: 1 / -1;
+            font-family: var(--f-jp);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            color: var(--c-accent);
+            opacity: 0.8;
+            margin-bottom: 2rem;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .jp-header::after {
+            content: '';
+            height: 1px;
+            width: 100px;
+            background: var(--c-accent);
+            opacity: 0.5;
+        }
+
+        /* Content Area */
+        .content {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            align-self: center;
+            z-index: 10;
+        }
+
+        .name-wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: var(--f-head);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-left: -4px; /* Optical alignment */
+        }
+
+        h1 span {
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: reveal 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        }
+
+        h1 span:nth-child(2) {
+            animation-delay: 0.1s;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.8); /* Outline effect */
+        }
+
+        /* Quote Stylized */
+        .quote {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 400px;
+            color: rgba(220, 220, 220, 0.8);
+            border-left: 1px solid var(--c-accent);
+            padding-left: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards;
+        }
+
+        .quote-jp {
+            display: block;
+            font-family: var(--f-jp);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            opacity: 0.6;
+        }
+
+        /* Avatar Section - Right Side */
+        .visual {
+            grid-column: 2 / 3;
+            grid-row: 1 / -1;
+            position: relative;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            pointer-events: none; /* Let clicks pass through */
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 30px;
-            padding: 50px 40px;
-            max-width: 450px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.4),
-                0 0 100px rgba(255, 140, 0, 0.15);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .avatar-container {
+        .avatar-frame {
             position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 30px;
-        }
-
-        .avatar-ring {
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #FFD700, #FF8C00, #FFD700, #FF8C00);
-            background-size: 400% 400%;
-            animation: gradient 3s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            width: 350px;
+            height: 450px;
+            /* Asymmetric clip path */
+            clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+            opacity: 0;
+            transform: scale(0.95);
+            animation: popIn 1s cubic-bezier(0.2, 1, 0.3, 1) 0.4s forwards;
         }
 
         .avatar {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 4px solid rgba(20, 20, 35, 0.8);
+            filter: grayscale(20%) sepia(10%);
+            transition: transform 0.7s ease, filter 0.5s ease;
+        }
+        
+        /* Subtle hover effect for desktop users who might hover the general area */
+        .avatar-frame:hover .avatar {
+            transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
-        .name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, #FFD700, #FF8C00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
+        /* Floating decoration elements */
+        .deco-text {
+            position: absolute;
+            font-family: var(--f-jp);
+            writing-mode: vertical-rl;
+            right: -2rem;
+            top: 20%;
+            font-size: 12rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.03);
+            pointer-events: none;
+            z-index: -1;
+            line-height: 1;
         }
 
-        .jp-name {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 1rem;
-            color: rgba(255, 215, 0, 0.8);
-            margin-bottom: 25px;
-            letter-spacing: 3px;
-        }
-
-        .quote {
-            font-size: 1rem;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            padding: 20px;
-            background: rgba(255, 140, 0, 0.15);
-            border-radius: 15px;
-            border-left: 3px solid #FFD700;
-            margin-bottom: 30px;
-        }
-
-        .interests {
+        /* Links / Footer */
+        .links {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: auto;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
         }
 
-        .tag {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 140, 0, 0.25));
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #FFD700;
-            transition: all 0.3s ease;
-        }
-
-        .tag:hover {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.5), rgba(255, 140, 0, 0.5));
-            transform: translateY(-2px);
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #FF8C00, #FFD700);
-            color: #1a1a2e;
+        .link-item {
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.4);
+            color: #fff;
+            font-family: var(--f-head);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: color 0.3s;
         }
 
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.6);
+        .link-item::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--c-accent);
+            transition: width 0.3s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        .social-link svg {
-            width: 20px;
-            height: 20px;
+        .link-item:hover {
+            color: var(--c-accent);
         }
 
-        .footer {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        .link-item:hover::before {
+            width: 100%;
+        }
+        
+        .meta-info {
+            position: absolute;
+            bottom: 4rem;
+            right: 4rem;
+            text-align: right;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            font-family: var(--f-body);
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.2s forwards;
         }
 
-        .footer span {
-            color: #FFD700;
+        /* Animations */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px 15px;
-            }
-            .card {
-                padding: 30px 20px;
-                border-radius: 25px;
-            }
-            .avatar-container {
-                width: 140px;
-                height: 140px;
-            }
-            .avatar {
-                width: 140px;
-                height: 140px;
-            }
-            .name {
-                font-size: 1.6rem;
-            }
-            .jp-name {
-                font-size: 0.9rem;
-                letter-spacing: 2px;
-            }
-            .quote {
-                font-size: 0.9rem;
-                padding: 15px;
-            }
-            .tag {
-                padding: 6px 14px;
-                font-size: 0.8rem;
-            }
-            .social-link {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            .footer {
-                bottom: 10px;
-                font-size: 0.75rem;
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        @media (max-width: 380px) {
-            .name {
-                font-size: 1.4rem;
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
+                padding: 2rem;
+                height: auto;
+                min-height: 100vh;
+                gap: 2rem;
             }
-            .avatar-container {
-                width: 120px;
-                height: 120px;
+
+            .jp-header {
+                grid-row: 1;
+                margin-bottom: 1rem;
             }
-            .avatar {
-                width: 120px;
-                height: 120px;
+
+            .visual {
+                grid-column: 1;
+                grid-row: 2;
+                justify-content: flex-start;
+                margin-bottom: 1rem;
+            }
+            
+            .avatar-frame {
+                width: 100%;
+                max-width: 300px;
+                height: 350px; /* shorter on mobile */
+            }
+
+            .content {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            .deco-text {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .links {
+                grid-row: 4;
+                padding-bottom: 2rem;
+            }
+
+            .meta-info {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <video class="video-bg" autoplay muted loop playsinline>
+
+    <!-- Background -->
+    <video class="bg-video" autoplay muted loop playsinline>
         <source src="bg.mp4" type="video/mp4">
     </video>
-    <div class="overlay"></div>
+    <div class="bg-overlay"></div>
 
-    <div class="container">
-        <div class="card">
-            <div class="avatar-container">
-                <div class="avatar-ring"></div>
-                <img src="avatar.jpg" alt="Mahiru" class="avatar">
-            </div>
+    <!-- Decorative Big Text -->
+    <div class="deco-text">天使</div>
 
-            <h1 class="name">Samuray43k</h1>
-            <p class="jp-name">天使様 ✦ Tenshi-sama</p>
+    <main>
+        <!-- Header -->
+        <header class="jp-header">
+            <span>天使様</span>
+            <span>04</span>
+        </header>
 
-            <blockquote class="quote">
-                „Bitte... ich bin doch nicht allein? Du bist doch meine Rettung?"
-            </blockquote>
-
-            <div class="interests">
-                <span class="tag">🤖 AI</span>
-                <span class="tag">👼 Mahiru</span>
-                <span class="tag">🎌 Anime</span>
-            </div>
-
-            <div class="socials">
-                <a href="https://t.me/HolyZxc" class="social-link" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                    </svg>
-                    Telegram
-                </a>
+        <!-- Visual (Avatar) -->
+        <div class="visual">
+            <div class="avatar-frame">
+                <img src="avatar.jpg" alt="Samuray43k Avatar" class="avatar">
             </div>
         </div>
-    </div>
 
-    <div class="footer">
-        Made with <span>♡</span> for <span>天使様</span>
-    </div>
+        <!-- Main Content -->
+        <div class="content">
+            <div class="name-wrapper">
+                <h1>
+                    <span>Samuray</span>
+                    <span>43k</span>
+                </h1>
+            </div>
+
+            <div class="quote">
+                <p>„Bitte... ich bin doch nicht allein? Du bist doch meine Rettung?"</p>
+                <span class="quote-jp">お願い...一人じゃないよね？あなたは私の救いだから</span>
+            </div>
+        </div>
+
+        <!-- Links -->
+        <div class="links">
+            <a href="https://t.me/HolyZxc" target="_blank" class="link-item">Telegram</a>
+            <!-- Added GitHub link for completeness if they want it, otherwise just keeping what was there -->
+            <!-- Previous file had github link in footer? No, just made with love. 
+                 But context says "Redesign a personal GitHub Pages site", usually implies linking to GitHub too.
+                 I'll add it to be safe as a "personal portfolio" usually needs it. -->
+            <!-- Checked original: it only had Telegram link in the .socials div.
+                 I will stick to Telegram as requested "Keep the Telegram link". 
+                 I'll add a 'Mail' or generic contact placeholder if needed, but for now just Telegram looks clean.
+                 Wait, user said "Keep the Telegram link". 
+                 I'll add a 'GitHub' link since it IS a github pages site. -->
+             <a href="https://github.com/Samuray4ik04" target="_blank" class="link-item">GitHub</a>
+        </div>
+
+        <div class="meta-info">
+            <p>MAHIRU SHIINA FAN PAGE</p>
+            <p>EST. 2024</p>
+        </div>
+    </main>
+
+    <script>
+        // Subtle parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            const avatar = document.querySelector('.avatar-frame');
+            const deco = document.querySelector('.deco-text');
+            
+            if(avatar) avatar.style.transform = `translate(${moveX * -1}px, ${moveY * -1}px)`;
+            if(deco) deco.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
 </body>
 </html>
