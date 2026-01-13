@@ -118,26 +118,26 @@
 
         h1 {
             font-family: var(--f-head);
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 800;
-            line-height: 0.9;
+            line-height: 1.1;
             text-transform: uppercase;
             letter-spacing: -0.02em;
             color: #fff;
-            margin-left: -4px; /* Optical alignment */
+            margin-left: -2px;
+            white-space: nowrap;
         }
 
         h1 span {
-            display: block;
+            display: inline;
             opacity: 0;
-            transform: translateY(20px);
             animation: reveal 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
         }
 
         h1 span:nth-child(2) {
             animation-delay: 0.1s;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.8); /* Outline effect */
+            -webkit-text-stroke: 1px rgba(255,255,255,0.8);
         }
 
         /* Quote Stylized */
@@ -349,8 +349,7 @@
             }
 
             h1 {
-                font-size: 3rem;
-                margin-left: 0;
+                font-size: clamp(1.8rem, 8vw, 3rem);
             }
             
             .quote {
@@ -398,7 +397,7 @@
             }
             
             h1 {
-                font-size: 2.5rem;
+                font-size: clamp(1.5rem, 7vw, 2.5rem);
             }
             
             h1 span:nth-child(2) {
@@ -442,7 +441,7 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: clamp(1.3rem, 6vw, 2rem);
             }
             
             .quote {
@@ -539,8 +538,7 @@
         <div class="content">
             <div class="name-wrapper">
                 <h1>
-                    <span>Samuray</span>
-                    <span>43k</span>
+                    <span>Samuray</span><span>43k</span>
                 </h1>
             </div>
 
