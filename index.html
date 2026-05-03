@@ -1,765 +1,804 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuray43k | Imperial Angel</title>
-    <meta name="description" content="Samuray43k — Imperial Angel. Mahiru Shiina Fan Page.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samuray43k | Imperial Angel</title>
+  <meta name="description" content="Samuray43k — Imperial Angel. Mahiru Shiina fan page in a warm editorial style.">
+  <meta property="og:title" content="Samuray43k | Imperial Angel">
+  <meta property="og:description" content="A quiet personal page for Mahiru Shiina, links, and notes.">
+  <meta property="og:image" content="avatar.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#faf9f5">
+  <link rel="icon" href="avatar.jpg" type="image/jpeg">
 
-    <!-- OG Tags для красивого превью в Telegram/Discord -->
-    <meta property="og:title" content="Samuray43k | Imperial Angel">
-    <meta property="og:description" content="天使様 — Mahiru Shiina Fan Page. Ad Gloriam Aeternam.">
-    <meta property="og:image" content="avatar.jpg">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#C9A84C">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --slate-dark: #141413;
+      --slate-medium: #3d3d3a;
+      --slate-light: #5e5d59;
+      --ivory-light: #faf9f5;
+      --ivory-medium: #f0eee6;
+      --ivory-dark: #e8e6dc;
+      --oat: #e3dacc;
+      --cloud-light: #d1cfc5;
+      --cloud-medium: #b0aea5;
+      --cloud-dark: #87867f;
+      --clay: #d97757;
+      --olive: #788c5d;
+      --fig: #c46686;
 
-    <style>
-        :root {
-            --bg-dark: #08060E;
-            --surface: rgba(18, 15, 28, 0.75);
-            --gold: #C9A84C;
-            --gold-light: #E8D48B;
-            --gold-dim: rgba(201, 168, 76, 0.15);
-            --imperial-red: #8B1A1A;
-            --imperial-green: #2A4A3A;
-            --cream: #F0E6D3;
-            --text-main: #E0D8CA;
-            --text-dim: rgba(224, 216, 202, 0.5);
+      --font-sans: "Inter", "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-serif: "Playfair Display", "Lora", Georgia, serif;
+      --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'Raleway', sans-serif;
-            --font-jp: 'Zen Maru Gothic', sans-serif;
-        }
+      --page-pad: clamp(18px, 4vw, 40px);
+      --content: 1200px;
+      --section-gap: clamp(44px, 7vw, 72px);
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-        html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background: var(--bg-dark);
-            /* Фоллбэк если видео не загрузится */
-            background-image:
-                radial-gradient(ellipse at 30% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 26, 26, 0.06) 0%, transparent 50%);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--ivory-light);
+      color: var(--slate-dark);
+      font-family: var(--font-sans);
+      letter-spacing: 0;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* === VIDEO BG === */
-        .bg-video {
-            position: fixed; inset: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -5;
-            opacity: 0.2;
-            filter: saturate(0.4) brightness(0.6);
-        }
+    a {
+      color: inherit;
+    }
 
-        .bg-overlay {
-            position: fixed; inset: 0;
-            background:
-                radial-gradient(ellipse at 30% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 26, 26, 0.05) 0%, transparent 50%),
-                linear-gradient(180deg, rgba(8, 6, 14, 0.7) 0%, rgba(8, 6, 14, 0.95) 100%);
-            z-index: -4;
-        }
+    img,
+    video,
+    svg {
+      display: block;
+    }
 
-        /* === ORNAMENT SVG CORNERS === */
-        .corner-ornament {
-            position: fixed;
-            width: 180px;
-            height: 180px;
-            z-index: 0;
-            opacity: 0.12;
-            pointer-events: none;
-        }
-        .corner-ornament svg { width: 100%; height: 100%; }
-        .corner-tl { top: 20px; left: 20px; }
-        .corner-tr { top: 20px; right: 20px; transform: scaleX(-1); }
-        .corner-bl { bottom: 20px; left: 20px; transform: scaleY(-1); }
-        .corner-br { bottom: 20px; right: 20px; transform: scale(-1, -1); }
+    .site-shell {
+      min-height: 100vh;
+      background: var(--ivory-light);
+    }
 
-        /* === GOLD PARTICLES (Canvas) === */
-        .particles-canvas {
-            position: fixed; inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-        }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--ivory-medium);
+      border-bottom: 1px solid var(--cloud-light);
+    }
 
-        /* === MAIN LAYOUT === */
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 90%;
-            max-width: 700px;
-            z-index: 10;
-            position: relative;
-            padding: 3rem 0;
-        }
+    .nav {
+      width: min(100%, var(--content));
+      height: 68px;
+      margin: 0 auto;
+      padding: 0 var(--page-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-        /* === IMPERIAL CREST === */
-        .crest {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeDown 1s ease 0.2s forwards;
-        }
-        .crest svg {
-            width: 100%; height: 100%;
-            filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.3));
-        }
+    .wordmark {
+      flex: 0 0 auto;
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-decoration: none;
+    }
 
-        /* === AVATAR === */
-        .avatar-wrapper {
-            position: relative;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: scaleIn 1.2s cubic-bezier(0.2, 1, 0.3, 1) 0.3s forwards;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-        .avatar-border {
-            width: 220px;
-            height: 220px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .nav-link,
+    .nav-cta,
+    .card-link,
+    .feature-cta {
+      border: 1px solid var(--slate-dark);
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 1.4;
+      transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
 
-        /* SVG-кольцо вместо conic-gradient + rotate (GPU-friendly) */
-        .avatar-ring {
-            position: absolute;
-            inset: -4px;
-            width: calc(100% + 8px);
-            height: calc(100% + 8px);
-            animation: rotateBorder 12s linear infinite;
-            will-change: transform;
-        }
+    .nav-link {
+      padding: 10px 14px;
+      background: transparent;
+      border-radius: 0;
+      font-weight: 400;
+    }
 
-        .avatar-ring-track {
-            fill: none;
-            stroke: var(--gold-dim);
-            stroke-width: 2;
-        }
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      background: var(--ivory-light);
+    }
 
-        .avatar-ring-main {
-            fill: none;
-            stroke: url(#goldGradient);
-            stroke-width: 3;
-            stroke-linecap: round;
-        }
+    .nav-cta {
+      flex: 0 0 auto;
+      padding: 12px 28px;
+      background: var(--ivory-light);
+      border-radius: 0 0 8px 8px;
+      font-weight: 500;
+    }
 
-        .avatar-outer-ring {
-            position: absolute;
-            inset: -12px;
-            border-radius: 50%;
-            border: 1px solid var(--gold-dim);
-            pointer-events: none;
-        }
+    .nav-cta:hover,
+    .nav-cta:focus-visible {
+      background: var(--ivory-dark);
+    }
 
-        .avatar-outer-ring-2 {
-            position: absolute;
-            inset: -20px;
-            border-radius: 50%;
-            border: 1px solid rgba(201, 168, 76, 0.06);
-            pointer-events: none;
-        }
+    .main {
+      width: min(100%, var(--content));
+      margin: 0 auto;
+      padding: 78px var(--page-pad) 44px;
+    }
 
-        .avatar-inner {
-            width: 212px;
-            height: 212px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: var(--bg-dark);
-            position: relative;
-            z-index: 1;
-        }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr);
+      gap: clamp(28px, 6vw, 88px);
+      align-items: start;
+      margin-bottom: var(--section-gap);
+    }
 
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease, filter 0.4s ease;
-            filter: saturate(0.9) contrast(1.05);
-        }
+    .eyebrow,
+    .meta-label,
+    .section-kicker,
+    .footer-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.3;
+      color: var(--cloud-dark);
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
 
-        .avatar-wrapper:hover .avatar-img {
-            transform: scale(1.1);
-            filter: saturate(1.1) contrast(1.1);
-        }
+    .eyebrow {
+      margin: 0 0 18px;
+    }
 
-        .avatar-glow {
-            position: absolute;
-            inset: -40px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
-            z-index: -1;
-            animation: pulseGlow 4s ease-in-out infinite alternate;
-            will-change: transform, opacity;
-        }
+    .hero-title {
+      max-width: 850px;
+      margin: 0;
+      font-size: 86px;
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
 
-        /* === NAME === */
-        .name-section {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+    .underline-emphasis {
+      color: var(--slate-dark);
+      text-decoration-line: underline;
+      text-decoration-color: var(--slate-dark);
+      text-decoration-thickness: clamp(4px, 0.08em, 8px);
+      text-underline-offset: 0.08em;
+      text-decoration-skip-ink: none;
+    }
 
-        .jp-title {
-            font-family: var(--font-jp);
-            color: var(--gold);
-            font-size: 0.85rem;
-            letter-spacing: 0.5em;
-            margin-bottom: 0.8rem;
-            opacity: 0;
-            animation: fadeDown 0.8s ease 0.6s forwards;
-        }
+    .hero-copy {
+      padding-top: 44px;
+    }
 
-        h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
-            font-weight: 900;
-            color: var(--cream);
-            line-height: 1;
-            letter-spacing: 0.04em;
-            position: relative;
-            display: inline-block;
-            /* 3D perspective для charReveal rotateX */
-            perspective: 600px;
-        }
+    .hero-copy p {
+      margin: 0;
+      max-width: 360px;
+      font-size: 20px;
+      line-height: 1.42;
+      letter-spacing: 0;
+    }
 
-        .char {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(40px) rotateX(-40deg);
-            animation: charReveal 0.9s cubic-bezier(0.2, 1, 0.3, 1) forwards;
-        }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 28px;
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid var(--cloud-light);
+    }
 
-        .title-ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.2s forwards;
-        }
+    .meta-value {
+      display: block;
+      margin-top: 4px;
+      font-size: 15px;
+      line-height: 1.4;
+      color: var(--slate-dark);
+    }
 
-        .ornament-line {
-            width: 80px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
+    .feature-card {
+      margin-bottom: var(--section-gap);
+      background: var(--slate-dark);
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      min-height: 510px;
+    }
 
-        .ornament-diamond {
-            width: 8px;
-            height: 8px;
-            background: var(--gold);
-            transform: rotate(45deg);
-            flex-shrink: 0;
-        }
+    .feature-copy {
+      padding: clamp(30px, 5vw, 52px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
-        /* === QUOTE === */
-        .quote-section {
-            text-align: center;
-            margin: 2rem 0 2.5rem;
-            max-width: 500px;
-            opacity: 0;
-            animation: fadeIn 1s ease 1s forwards;
-        }
+    .feature-kicker {
+      margin: 0 0 24px;
+      color: var(--cloud-medium);
+    }
 
-        .quote-text {
-            font-family: var(--font-display);
-            font-style: italic;
-            font-size: 1.15rem;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin-bottom: 0.6rem;
-        }
+    .feature-title {
+      margin: 0;
+      color: var(--ivory-light);
+      font-family: var(--font-serif);
+      font-size: 86px;
+      font-weight: 400;
+      line-height: 1.07;
+      letter-spacing: 0;
+    }
 
-        .quote-text::before { content: '\201E'; color: var(--gold); font-size: 1.5rem; }
-        .quote-text::after { content: '\201C'; color: var(--gold); font-size: 1.5rem; }
+    .feature-text {
+      max-width: 420px;
+      margin: 24px 0 34px;
+      color: var(--ivory-dark);
+      font-size: 18px;
+      line-height: 1.48;
+      letter-spacing: 0;
+    }
 
-        .quote-jp {
-            font-family: var(--font-jp);
-            font-size: 0.8rem;
-            color: var(--gold);
-            opacity: 0.6;
-            letter-spacing: 0.08em;
-        }
+    .feature-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
 
-        /* === LINKS === */
-        .links {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.3s forwards;
-        }
+    .feature-cta {
+      padding: 12px 28px;
+      background: var(--ivory-light);
+      color: var(--slate-dark);
+      border-color: var(--ivory-light);
+      border-radius: 0;
+      font-weight: 500;
+    }
 
-        .btn {
-            text-decoration: none;
-            color: var(--gold);
-            font-family: var(--font-body);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            padding: 0.9rem 2.2rem;
-            border: 1px solid rgba(201, 168, 76, 0.35);
-            border-radius: 0;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            background: transparent;
-        }
+    .feature-cta.secondary {
+      background: transparent;
+      color: var(--ivory-light);
+      border-color: var(--ivory-light);
+    }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gold);
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-            z-index: -1;
-        }
+    .feature-cta:hover,
+    .feature-cta:focus-visible {
+      background: var(--ivory-medium);
+      color: var(--slate-dark);
+    }
 
-        .btn:hover {
-            color: var(--bg-dark);
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
-        }
+    .visual-panel {
+      position: relative;
+      min-height: 510px;
+      background: var(--slate-dark);
+      overflow: hidden;
+      border-left: 1px solid var(--slate-medium);
+      display: grid;
+      place-items: center;
+      padding: clamp(24px, 4vw, 48px);
+    }
 
-        .btn:hover::before {
-            transform: scaleY(1);
-        }
+    .visual-frame {
+      position: relative;
+      width: min(100%, 520px);
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #1d1d1a;
+      border: 1px solid var(--slate-medium);
+    }
 
-        /* === IMPERIAL BANNER === */
-        .imperial-banner {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.2rem 2rem;
-            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.05), transparent);
-            border-top: 1px solid rgba(201, 168, 76, 0.1);
-            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.5s forwards;
-        }
+    .visual-frame img,
+    .visual-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.58) contrast(1.08);
+    }
 
-        .banner-icon {
-            width: 36px;
-            height: 36px;
-            flex-shrink: 0;
-        }
-        .banner-icon svg {
-            width: 100%; height: 100%;
-        }
+    .visual-frame video {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      mix-blend-mode: screen;
+    }
 
-        .banner-text {
-            font-family: var(--font-display);
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
+    .visual-frame img {
+      opacity: 0.82;
+    }
 
-        .banner-text span {
-            color: var(--gold);
-            font-weight: 700;
-        }
+    .mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.72;
+    }
 
-        /* === FOOTER === */
-        .footer {
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.8s forwards;
-        }
+    .mesh path,
+    .mesh polygon,
+    .mesh circle {
+      vector-effect: non-scaling-stroke;
+    }
 
-        .footer-text {
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            color: var(--text-dim);
-            text-transform: uppercase;
-        }
+    .content-grid {
+      margin-bottom: var(--section-gap);
+    }
 
-        /* === DECORATIVE BG TEXT === */
-        .bg-deco-text {
-            position: fixed;
-            font-family: var(--font-jp);
-            font-size: 25rem;
-            font-weight: 900;
-            color: rgba(201, 168, 76, 0.02);
-            z-index: -1;
-            pointer-events: none;
-            user-select: none;
-            writing-mode: vertical-rl;
-            top: 50%;
-            right: -5%;
-            transform: translateY(-50%);
-            animation: floatText 10s ease-in-out infinite alternate;
-            will-change: transform;
-        }
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
 
-        /* === ANIMATIONS === */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .section-title {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: 0;
+      max-width: 760px;
+    }
 
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
 
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
+    .info-card {
+      min-height: 300px;
+      padding: 31px;
+      border-radius: 8px;
+      background: var(--ivory-medium);
+      display: flex;
+      flex-direction: column;
+    }
 
-        @keyframes charReveal {
-            to { opacity: 1; transform: translateY(0) rotateX(0deg); }
-        }
+    .info-card:nth-child(2) {
+      background: var(--oat);
+    }
 
-        @keyframes rotateBorder {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+    .info-card:nth-child(3) {
+      background: var(--ivory-dark);
+    }
 
-        @keyframes pulseGlow {
-            from { opacity: 0.5; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1.05); }
-        }
+    .card-title {
+      margin: 0 0 12px;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
 
-        @keyframes floatText {
-            from { transform: translateY(-50%); }
-            to { transform: translateY(calc(-50% - 30px)); }
-        }
+    .card-body {
+      margin: 0 0 22px;
+      font-size: 15px;
+      line-height: 1.48;
+      letter-spacing: 0;
+    }
 
-        /* === REDUCED MOTION === */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            .particles-canvas { display: none; }
-            .bg-deco-text { animation: none; transform: translateY(-50%); }
-            .avatar-ring { animation: none; }
-            .avatar-glow { animation: none; opacity: 0.7; }
-            .char { opacity: 1; transform: none; }
-            /* Убираем задержки — всё видно сразу */
-            .crest, .jp-title, .title-ornament, .quote-section,
-            .links, .imperial-banner, .footer, .avatar-wrapper {
-                opacity: 1;
-                transform: none;
-            }
-        }
+    .card-link {
+      width: max-content;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      font-weight: 400;
+    }
 
-        /* === RESPONSIVE === */
-        @media (max-width: 768px) {
-            .corner-ornament { width: 100px; height: 100px; }
+    .card-link:hover,
+    .card-link:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
-            .avatar-border { width: 180px; height: 180px; }
-            .avatar-inner { width: 172px; height: 172px; }
+    .card-meta {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--cloud-light);
+      display: grid;
+      gap: 10px;
+    }
 
-            h1 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+    .meta-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
-            .quote-text { font-size: 1rem; }
+    .quote-band {
+      margin-bottom: var(--section-gap);
+      padding: clamp(28px, 5vw, 52px);
+      background: var(--oat);
+      border-radius: 8px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.65fr) minmax(0, 1fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: start;
+    }
 
-            .imperial-banner {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.8rem;
-                padding: 1rem;
-            }
+    .quote-band blockquote {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 56px;
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--slate-dark);
+    }
 
-            .bg-deco-text { font-size: 15rem; right: -15%; }
+    .quote-text {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.48;
+      letter-spacing: 0;
+    }
 
-            .links { flex-direction: column; width: 100%; max-width: 280px; }
-            .btn { width: 100%; text-align: center; }
-        }
+    .quote-jp {
+      margin: 24px 0 0;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--slate-light);
+    }
 
-        @media (max-width: 480px) {
-            main { padding: 2rem 0; }
-            .corner-ornament { width: 70px; height: 70px; opacity: 0.08; }
-            .avatar-border { width: 150px; height: 150px; }
-            .avatar-inner { width: 142px; height: 142px; }
-            .ornament-line { width: 50px; }
-            .bg-deco-text { font-size: 10rem; }
-            .crest { width: 45px; height: 45px; }
-        }
-    </style>
+    .footer {
+      padding: 26px 0 0;
+      border-top: 1px solid var(--cloud-light);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--slate-light);
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--slate-dark);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 920px) {
+      .nav-links {
+        display: none;
+      }
+
+      .main {
+        padding-top: 54px;
+      }
+
+      .hero,
+      .feature-card,
+      .quote-band {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding-top: 0;
+      }
+
+      .hero-copy p {
+        font-size: 18px;
+      }
+
+      .hero-title {
+        font-size: 62px;
+      }
+
+      .feature-title {
+        font-size: 58px;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .quote-band blockquote {
+        font-size: 40px;
+      }
+
+      .feature-card {
+        min-height: 0;
+      }
+
+      .visual-panel {
+        min-height: 420px;
+        border-left: 0;
+        border-top: 1px solid var(--slate-medium);
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        min-height: 240px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav {
+        gap: 12px;
+      }
+
+      .wordmark {
+        font-size: 14px;
+      }
+
+      .nav-cta {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+
+      .hero-title {
+        font-size: 42px;
+      }
+
+      .hero-copy p {
+        font-size: 17px;
+      }
+
+      .feature-title {
+        font-size: 44px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .quote-band blockquote {
+        font-size: 32px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-copy,
+      .info-card,
+      .quote-band {
+        padding: 24px;
+      }
+
+      .feature-actions {
+        width: 100%;
+      }
+
+      .feature-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .visual-panel {
+        min-height: 320px;
+        padding: 18px;
+      }
+
+      .section-header,
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .visual-frame video {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="wordmark" href="#top" aria-label="Samuray43k home">SAMURAY43K\</a>
+        <div class="nav-links">
+          <a class="nav-link" href="#profile">Profile</a>
+          <a class="nav-link" href="#notes">Notes</a>
+          <a class="nav-link" href="#quote">Quote</a>
+        </div>
+        <a class="nav-cta" href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </nav>
+    </header>
 
-    <!-- SVG Defs (переиспользуемые градиенты) -->
-    <svg style="position:absolute;width:0;height:0;" aria-hidden="true">
-        <defs>
-            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#C9A84C"/>
-                <stop offset="50%" stop-color="#E8D48B"/>
-                <stop offset="100%" stop-color="#C9A84C"/>
-            </linearGradient>
-        </defs>
-    </svg>
+    <main class="main" id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Imperial Angel / Personal Page</p>
+          <h1 class="hero-title" id="hero-title">
+            A quiet page for <span class="underline-emphasis">Samuray43k</span> and <span class="underline-emphasis">Mahiru Shiina</span>.
+          </h1>
+        </div>
+        <div class="hero-copy">
+          <p>
+            Warm paper, strict type, and a small archive of links. No glow stack, no ornamental chrome, just a measured fan page with a single dark editorial break.
+          </p>
+          <div class="hero-meta" aria-label="Page metadata">
+            <div>
+              <span class="meta-label">Handle</span>
+              <span class="meta-value">Samuray4ik04</span>
+            </div>
+            <div>
+              <span class="meta-label">Theme</span>
+              <span class="meta-value">Imperial Angel</span>
+            </div>
+            <div>
+              <span class="meta-label">Subject</span>
+              <span class="meta-value">Mahiru Shiina</span>
+            </div>
+            <div>
+              <span class="meta-label">Motto</span>
+              <span class="meta-value">Ad Gloriam Aeternam</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <video class="bg-video" autoplay muted loop playsinline>
-        <source src="bg.mp4" type="video/mp4">
-    </video>
-    <div class="bg-overlay"></div>
+      <section class="feature-card" id="profile" aria-labelledby="feature-title">
+        <div class="feature-copy">
+          <p class="eyebrow feature-kicker">Featured Profile</p>
+          <h2 class="feature-title" id="feature-title">Imperial<br>Angel</h2>
+          <p class="feature-text">
+            The old page was cinematic and gold. This version keeps the devotion, but translates it into a restrained research-journal surface: ivory fields, near-black type, and one contained portrait.
+          </p>
+          <div class="feature-actions" aria-label="Profile links">
+            <a class="feature-cta" href="https://github.com/Samuray4ik04" target="_blank" rel="noopener noreferrer">Open GitHub</a>
+            <a class="feature-cta secondary" href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer">Open Telegram</a>
+          </div>
+        </div>
 
-    <!-- Corner Ornaments -->
-    <div class="corner-ornament corner-tl">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10 L10 80 Q10 90 20 90 L50 90" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <path d="M10 10 L80 10 Q90 10 90 20 L90 50" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <circle cx="10" cy="10" r="3" fill="#C9A84C"/>
-            <path d="M30 30 L30 60 Q30 65 35 65 L60 65" stroke="#C9A84C" stroke-width="0.5" fill="none" opacity="0.6"/>
-            <path d="M30 30 L60 30 Q65 30 65 35 L65 60" stroke="#C9A84C" stroke-width="0.5" fill="none" opacity="0.6"/>
-            <rect x="27" y="27" width="6" height="6" transform="rotate(45 30 30)" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.6"/>
-            <path d="M15 45 Q20 42 25 45 Q30 48 35 45" stroke="#C9A84C" stroke-width="0.5" fill="none" opacity="0.4"/>
-            <path d="M45 15 Q42 20 45 25 Q48 30 45 35" stroke="#C9A84C" stroke-width="0.5" fill="none" opacity="0.4"/>
-        </svg>
-    </div>
-    <div class="corner-ornament corner-tr">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10 L10 80 Q10 90 20 90 L50 90" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <path d="M10 10 L80 10 Q90 10 90 20 L90 50" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <circle cx="10" cy="10" r="3" fill="#C9A84C"/>
-            <path d="M30 30 L30 60 Q30 65 35 65 L60 65" stroke="#C9A84C" stroke-width="0.5" fill="none" opacity="0.6"/>
-            <path d="M30 30 L60 30 Q65 30 65 35 L65 60" stroke="#C9A84C" stroke-width="0.5" fill="none" opacity="0.6"/>
-            <rect x="27" y="27" width="6" height="6" transform="rotate(45 30 30)" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.6"/>
-        </svg>
-    </div>
-    <div class="corner-ornament corner-bl">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10 L10 80 Q10 90 20 90 L50 90" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <path d="M10 10 L80 10 Q90 10 90 20 L90 50" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <circle cx="10" cy="10" r="3" fill="#C9A84C"/>
-        </svg>
-    </div>
-    <div class="corner-ornament corner-br">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10 L10 80 Q10 90 20 90 L50 90" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <path d="M10 10 L80 10 Q90 10 90 20 L90 50" stroke="#C9A84C" stroke-width="1" fill="none"/>
-            <circle cx="10" cy="10" r="3" fill="#C9A84C"/>
-        </svg>
-    </div>
-
-    <!-- Bg deco -->
-    <div class="bg-deco-text" lang="ja" aria-hidden="true">天使</div>
-
-    <!-- Gold particles (Canvas вместо 30 DOM-элементов) -->
-    <canvas class="particles-canvas" id="particles"></canvas>
-
-    <main>
-        <!-- Imperial Crest -->
-        <div class="crest" aria-hidden="true">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Double-headed eagle simplified -->
-                <path d="M50 8 L55 20 L68 14 L60 26 L72 28 L60 34 L66 46 L54 40 L50 52 L46 40 L34 46 L40 34 L28 28 L40 26 L32 14 L45 20 Z" fill="#C9A84C" opacity="0.9"/>
-                <circle cx="50" cy="30" r="8" fill="none" stroke="#C9A84C" stroke-width="1"/>
-                <circle cx="50" cy="30" r="4" fill="#C9A84C" opacity="0.5"/>
-                <path d="M38 55 Q44 50 50 55 Q56 50 62 55" stroke="#C9A84C" stroke-width="1" fill="none"/>
-                <path d="M35 62 Q42 56 50 62 Q58 56 65 62" stroke="#C9A84C" stroke-width="0.8" fill="none" opacity="0.7"/>
-                <path d="M40 70 L50 65 L60 70" stroke="#C9A84C" stroke-width="0.8" fill="none" opacity="0.5"/>
-                <line x1="50" y1="52" x2="50" y2="75" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
-                <!-- Crown -->
-                <path d="M42 8 L44 2 L46 6 L48 0 L50 6 L52 0 L54 6 L56 2 L58 8" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+        <div class="visual-panel" aria-label="Mahiru Shiina portrait with abstract mesh overlay">
+          <div class="visual-frame">
+            <img src="avatar.jpg" alt="Mahiru Shiina portrait" decoding="async">
+            <video aria-hidden="true" autoplay muted loop playsinline>
+              <source src="bg.mp4" type="video/mp4">
+            </video>
+            <svg class="mesh" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon points="260,52 364,112 364,232 260,292 156,232 156,112" stroke="rgba(250,249,245,0.58)" stroke-width="1.2"/>
+              <polygon points="260,124 326,162 326,238 260,276 194,238 194,162" stroke="rgba(250,249,245,0.32)" stroke-width="0.9"/>
+              <polygon points="364,112 452,72 482,174 416,240 364,232" stroke="rgba(250,249,245,0.36)" stroke-width="1"/>
+              <polygon points="156,112 68,72 38,174 104,240 156,232" stroke="rgba(250,249,245,0.36)" stroke-width="1"/>
+              <polygon points="260,292 340,340 318,458 260,496 202,458 180,340" stroke="rgba(250,249,245,0.42)" stroke-width="1"/>
+              <polygon points="104,240 180,340 202,458 92,414 40,300" stroke="rgba(250,249,245,0.24)" stroke-width="0.9"/>
+              <polygon points="416,240 340,340 318,458 428,414 480,300" stroke="rgba(250,249,245,0.24)" stroke-width="0.9"/>
+              <line x1="260" y1="52" x2="260" y2="496" stroke="rgba(250,249,245,0.18)" stroke-width="0.8"/>
+              <line x1="38" y1="174" x2="482" y2="174" stroke="rgba(250,249,245,0.16)" stroke-width="0.8"/>
+              <line x1="68" y1="72" x2="428" y2="414" stroke="rgba(250,249,245,0.16)" stroke-width="0.8"/>
+              <line x1="452" y1="72" x2="92" y2="414" stroke="rgba(250,249,245,0.16)" stroke-width="0.8"/>
+              <circle cx="260" cy="202" r="6" fill="rgba(250,249,245,0.16)" stroke="rgba(250,249,245,0.62)" stroke-width="1"/>
+              <circle cx="156" cy="112" r="4" fill="rgba(250,249,245,0.18)"/>
+              <circle cx="364" cy="112" r="4" fill="rgba(250,249,245,0.18)"/>
+              <circle cx="202" cy="458" r="4" fill="rgba(250,249,245,0.18)"/>
+              <circle cx="318" cy="458" r="4" fill="rgba(250,249,245,0.18)"/>
             </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid" id="notes" aria-labelledby="notes-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Latest Notes</p>
+            <h2 class="section-title" id="notes-title">The page is structured as a small public dossier.</h2>
+          </div>
         </div>
 
-        <!-- Avatar -->
-        <div class="avatar-wrapper">
-            <div class="avatar-glow"></div>
-            <div class="avatar-border">
-                <div class="avatar-outer-ring"></div>
-                <div class="avatar-outer-ring-2"></div>
-                <!-- SVG-кольцо вместо тяжёлого conic-gradient rotate -->
-                <svg class="avatar-ring" viewBox="0 0 230 230">
-                    <circle class="avatar-ring-track" cx="115" cy="115" r="110"/>
-                    <circle class="avatar-ring-main" cx="115" cy="115" r="110"
-                        stroke-dasharray="200 80 120 60 90 140"
-                    />
-                </svg>
-                <div class="avatar-inner">
-                    <img src="avatar.jpg" alt="Mahiru Shiina" class="avatar-img" decoding="async">
-                </div>
+        <div class="cards">
+          <article class="info-card">
+            <h3 class="card-title">Profile</h3>
+            <p class="card-body">
+              A single-page identity mark for Samuray43k, reduced to typography, metadata, and a contained visual field.
+            </p>
+            <a class="card-link" href="#profile">Read profile &rarr;</a>
+            <div class="card-meta">
+              <div class="meta-row">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">Identity</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Surface</span>
+                <span class="meta-value">Ivory</span>
+              </div>
             </div>
-        </div>
+          </article>
 
-        <!-- Name -->
-        <div class="name-section">
-            <div class="jp-title" lang="ja">天使様 <span aria-hidden="true">・</span> <span lang="en">IMPERIAL ANGEL</span></div>
-            <h1 id="main-title">Samuray43k</h1>
-            <div class="title-ornament" aria-hidden="true">
-                <div class="ornament-line"></div>
-                <div class="ornament-diamond"></div>
-                <div class="ornament-line"></div>
+          <article class="info-card">
+            <h3 class="card-title">Mahiru</h3>
+            <p class="card-body">
+              The fan-page signal remains intact, but the styling now reads as quiet editorial material instead of a decorative shrine.
+            </p>
+            <a class="card-link" href="#quote">Read quote &rarr;</a>
+            <div class="card-meta">
+              <div class="meta-row">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">Fan page</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Accent</span>
+                <span class="meta-value">Underline</span>
+              </div>
             </div>
-        </div>
+          </article>
 
-        <!-- Quote -->
-        <div class="quote-section">
-            <p class="quote-text" lang="de">Bitte... ich bin doch nicht allein? Du bist doch meine Rettung?</p>
-            <p class="quote-jp" lang="ja">お願い...一人じゃないよね？あなたは私の救いだから</p>
-        </div>
-
-        <!-- Links -->
-        <nav class="links" aria-label="Social links">
-            <a href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer" class="btn">Telegram</a>
-            <a href="https://github.com/Samuray4ik04" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
-        </nav>
-
-        <!-- Imperial Banner -->
-        <div class="imperial-banner">
-            <div class="banner-icon" aria-hidden="true">
-                <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25 5 L30 15 L25 12 L20 15 Z" fill="#C9A84C" opacity="0.8"/>
-                    <path d="M25 12 L25 40" stroke="#C9A84C" stroke-width="1"/>
-                    <path d="M18 20 Q25 16 32 20" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
-                    <circle cx="25" cy="42" r="4" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
-                    <circle cx="25" cy="42" r="1.5" fill="#C9A84C" opacity="0.5"/>
-                </svg>
+          <article class="info-card">
+            <h3 class="card-title">Links</h3>
+            <p class="card-body">
+              Telegram and GitHub are the only outbound actions. Both are visible in the editorial card and navigation.
+            </p>
+            <a class="card-link" href="https://github.com/Samuray4ik04" target="_blank" rel="noopener noreferrer">Open GitHub &rarr;</a>
+            <div class="card-meta">
+              <div class="meta-row">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">Contact</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Status</span>
+                <span class="meta-value">Public</span>
+              </div>
             </div>
-            <div class="banner-text">
-                <span>Mahiru Shiina</span> Fan Page &mdash; Est. 2024
-            </div>
+          </article>
         </div>
+      </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p class="footer-text" lang="la">Ad Gloriam Aeternam</p>
-        </footer>
+      <section class="quote-band" id="quote" aria-labelledby="quote-title">
+        <div>
+          <p class="section-kicker">Archived Quote</p>
+          <blockquote id="quote-title">Bitte... ich bin doch nicht allein?</blockquote>
+        </div>
+        <div>
+          <p class="quote-text">
+            Du bist doch meine Rettung? The line stays as the emotional center, but the page lets type carry the emphasis instead of heavy visual effects.
+          </p>
+          <p class="quote-jp" lang="ja">お願い...一人じゃないよね？あなたは私の救いだから</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="footer-label">Ad Gloriam Aeternam</span>
+        <p>Mahiru Shiina Fan Page — Est. 2024</p>
+      </footer>
     </main>
-
-    <script>
-        // === Animated title ===
-        const title = document.getElementById('main-title');
-        const text = title.textContent;
-        title.textContent = '';
-
-        // Проверяем prefers-reduced-motion
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        if (prefersReduced) {
-            title.textContent = text;
-        } else {
-            [...text].forEach((char, i) => {
-                const span = document.createElement('span');
-                span.textContent = char;
-                span.className = 'char';
-                span.style.animationDelay = `${i * 0.07 + 0.7}s`;
-                title.appendChild(span);
-            });
-        }
-
-        // === Canvas Gold Particles ===
-        // Один canvas вместо 30 DOM-элементов с box-shadow = ~3x меньше нагрузки
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-
-        let particles = [];
-        let animId;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        function createParticles(count) {
-            particles = [];
-            for (let i = 0; i < count; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 3 + 1.5,
-                    speed: Math.random() * 0.6 + 0.2,
-                    rotation: Math.random() * 360,
-                    rotSpeed: (Math.random() - 0.5) * 0.8,
-                    phase: Math.random() * Math.PI * 2,
-                    drift: Math.random() * 0.3 + 0.1
-                });
-            }
-        }
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (const p of particles) {
-                // Движение вверх
-                p.y -= p.speed;
-                p.rotation += p.rotSpeed;
-                p.x += Math.sin(p.phase + p.y * 0.005) * p.drift;
-
-                // Ресет за верхний край
-                if (p.y < -20) {
-                    p.y = canvas.height + 20;
-                    p.x = Math.random() * canvas.width;
-                }
-
-                // Opacity на основе позиции (fade in/out у краёв)
-                const normalY = p.y / canvas.height;
-                let alpha = 0.6;
-                if (normalY > 0.85) alpha = (1 - normalY) / 0.15 * 0.6;
-                else if (normalY < 0.1) alpha = normalY / 0.1 * 0.6;
-
-                // Glow
-                ctx.save();
-                ctx.globalAlpha = alpha * 0.3;
-                ctx.fillStyle = '#C9A84C';
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = 'rgba(201, 168, 76, 0.5)';
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
-                ctx.fill();
-
-                // Core
-                ctx.globalAlpha = alpha;
-                ctx.shadowBlur = 0;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
-            }
-
-            animId = requestAnimationFrame(drawParticles);
-        }
-
-        if (!prefersReduced) {
-            createParticles(30);
-            drawParticles();
-        }
-
-        // Пауза анимации когда вкладка неактивна (экономия батареи)
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                cancelAnimationFrame(animId);
-            } else if (!prefersReduced) {
-                drawParticles();
-            }
-        });
-    </script>
+  </div>
 </body>
 </html>
