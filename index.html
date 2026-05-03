@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samuray43k | Imperial Angel</title>
-  <meta name="description" content="Samuray43k — Imperial Angel. Mahiru Shiina fan page in a warm editorial style.">
-  <meta property="og:title" content="Samuray43k | Imperial Angel">
-  <meta property="og:description" content="A quiet personal page for Mahiru Shiina, links, and notes.">
+  <title>Samuray43k | Махиру Сиина</title>
+  <meta name="description" content="Samuray43k — страница о Махиру Сиине в тёплом редакционном стиле.">
+  <meta property="og:title" content="Samuray43k | Махиру Сиина">
+  <meta property="og:description" content="Тихая страница о Махиру Сиине, её образе, палитре и ссылках.">
   <meta property="og:image" content="avatar.jpg">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#faf9f5">
@@ -31,6 +31,14 @@
       --clay: #d97757;
       --olive: #788c5d;
       --fig: #c46686;
+      --mahiru-cream: #fff8ec;
+      --mahiru-flax: #e8d39b;
+      --mahiru-gold: #d7b36a;
+      --mahiru-caramel: #b87935;
+      --mahiru-blush: #e7a6a3;
+      --uniform-navy: #26364f;
+      --ribbon-red: #9f3b3f;
+      --skirt-brown: #7b5a45;
 
       --font-sans: "Inter", "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-serif: "Playfair Display", "Lora", Georgia, serif;
@@ -188,7 +196,7 @@
     .underline-emphasis {
       color: var(--slate-dark);
       text-decoration-line: underline;
-      text-decoration-color: var(--slate-dark);
+      text-decoration-color: var(--mahiru-caramel);
       text-decoration-thickness: clamp(4px, 0.08em, 8px);
       text-underline-offset: 0.08em;
       text-decoration-skip-ink: none;
@@ -292,6 +300,15 @@
       color: var(--slate-dark);
     }
 
+    .feature-note {
+      margin-top: 22px;
+      color: var(--mahiru-flax);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
     .visual-panel {
       position: relative;
       min-height: 510px;
@@ -382,11 +399,11 @@
     }
 
     .info-card:nth-child(2) {
-      background: var(--oat);
+      background: var(--mahiru-cream);
     }
 
     .info-card:nth-child(3) {
-      background: var(--ivory-dark);
+      background: var(--oat);
     }
 
     .card-title {
@@ -424,6 +441,40 @@
       border-top: 1px solid var(--cloud-light);
       display: grid;
       gap: 10px;
+    }
+
+    .palette-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .swatch {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .swatch-chip {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--slate-dark);
+    }
+
+    .swatch-name {
+      display: block;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .swatch-hex {
+      display: block;
+      margin-top: 2px;
+      color: var(--cloud-dark);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.3;
     }
 
     .meta-row {
@@ -631,12 +682,12 @@
 <body>
   <div class="site-shell">
     <header class="topbar">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="wordmark" href="#top" aria-label="Samuray43k home">SAMURAY43K\</a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="wordmark" href="#top" aria-label="Главная Samuray43k">SAMURAY43K\</a>
         <div class="nav-links">
-          <a class="nav-link" href="#profile">Profile</a>
-          <a class="nav-link" href="#notes">Notes</a>
-          <a class="nav-link" href="#quote">Quote</a>
+          <a class="nav-link" href="#profile">Профиль</a>
+          <a class="nav-link" href="#notes">О Махиру</a>
+          <a class="nav-link" href="#quote">Цитата</a>
         </div>
         <a class="nav-cta" href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer">Telegram</a>
       </nav>
@@ -645,31 +696,31 @@
     <main class="main" id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <p class="eyebrow">Imperial Angel / Personal Page</p>
+          <p class="eyebrow">Имперский ангел / Страница персонажа</p>
           <h1 class="hero-title" id="hero-title">
-            A quiet page for <span class="underline-emphasis">Samuray43k</span> and <span class="underline-emphasis">Mahiru Shiina</span>.
+            Тихая страница о <span class="underline-emphasis">Samuray43k</span> и <span class="underline-emphasis">Махиру Сиине</span>.
           </h1>
         </div>
         <div class="hero-copy">
           <p>
-            Warm paper, strict type, and a small archive of links. No glow stack, no ornamental chrome, just a measured fan page with a single dark editorial break.
+            Тёплая бумага, строгая типографика и мягкая палитра Махиру: льняной блонд, карамельные глаза, кремовый свет и спокойный школьный образ.
           </p>
-          <div class="hero-meta" aria-label="Page metadata">
+          <div class="hero-meta" aria-label="Метаданные страницы">
             <div>
-              <span class="meta-label">Handle</span>
+              <span class="meta-label">Ник</span>
               <span class="meta-value">Samuray4ik04</span>
             </div>
             <div>
-              <span class="meta-label">Theme</span>
-              <span class="meta-value">Imperial Angel</span>
+              <span class="meta-label">Тема</span>
+              <span class="meta-value">Махиру Сиина</span>
             </div>
             <div>
-              <span class="meta-label">Subject</span>
-              <span class="meta-value">Mahiru Shiina</span>
+              <span class="meta-label">Тайтл</span>
+              <span class="meta-value">Ангел по соседству</span>
             </div>
             <div>
-              <span class="meta-label">Motto</span>
-              <span class="meta-value">Ad Gloriam Aeternam</span>
+              <span class="meta-label">Настрой</span>
+              <span class="meta-value">Тихая повседневность</span>
             </div>
           </div>
         </div>
@@ -677,20 +728,21 @@
 
       <section class="feature-card" id="profile" aria-labelledby="feature-title">
         <div class="feature-copy">
-          <p class="eyebrow feature-kicker">Featured Profile</p>
-          <h2 class="feature-title" id="feature-title">Imperial<br>Angel</h2>
+          <p class="eyebrow feature-kicker">Профиль персонажа</p>
+          <h2 class="feature-title" id="feature-title">Махиру<br>Сиина</h2>
           <p class="feature-text">
-            The old page was cinematic and gold. This version keeps the devotion, but translates it into a restrained research-journal surface: ivory fields, near-black type, and one contained portrait.
+            Главная героиня «Ангел по соседству меня балует». В школе её называют Ангелом: она отличница, аккуратная, сдержанная и почти недостижимая на публике. Рядом с Аманэ образ становится теплее: не идеальная статуя, а человек, которому тоже нужна забота.
           </p>
-          <div class="feature-actions" aria-label="Profile links">
-            <a class="feature-cta" href="https://github.com/Samuray4ik04" target="_blank" rel="noopener noreferrer">Open GitHub</a>
-            <a class="feature-cta secondary" href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer">Open Telegram</a>
+          <div class="feature-actions" aria-label="Ссылки профиля">
+            <a class="feature-cta" href="#notes">О персонаже</a>
+            <a class="feature-cta secondary" href="https://github.com/Samuray4ik04" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
+          <div class="feature-note">Льняные волосы / карамельные глаза / кремовая палитра</div>
         </div>
 
-        <div class="visual-panel" aria-label="Mahiru Shiina portrait with abstract mesh overlay">
+        <div class="visual-panel" aria-label="Портрет Махиру Сиины с абстрактной сеткой">
           <div class="visual-frame">
-            <img src="avatar.jpg" alt="Mahiru Shiina portrait" decoding="async">
+            <img src="avatar.jpg" alt="Портрет Махиру Сиины" decoding="async">
             <video aria-hidden="true" autoplay muted loop playsinline>
               <source src="bg.mp4" type="video/mp4">
             </video>
@@ -719,62 +771,76 @@
       <section class="content-grid" id="notes" aria-labelledby="notes-title">
         <div class="section-header">
           <div>
-            <p class="section-kicker">Latest Notes</p>
-            <h2 class="section-title" id="notes-title">The page is structured as a small public dossier.</h2>
+            <p class="section-kicker">О Махиру</p>
+            <h2 class="section-title" id="notes-title">Кто она, какой у неё образ и какие цвета подходят странице.</h2>
           </div>
         </div>
 
         <div class="cards">
           <article class="info-card">
-            <h3 class="card-title">Profile</h3>
+            <h3 class="card-title">Кто она</h3>
             <p class="card-body">
-              A single-page identity mark for Samuray43k, reduced to typography, metadata, and a contained visual field.
+              Махиру Сиина — соседка и одноклассница Аманэ Фудзимии. В школе её знают как «Ангела» за красоту, хорошие оценки, спокойствие и безупречную манеру держаться.
             </p>
-            <a class="card-link" href="#profile">Read profile &rarr;</a>
+            <a class="card-link" href="#profile">К профилю &rarr;</a>
             <div class="card-meta">
               <div class="meta-row">
-                <span class="meta-label">Category</span>
-                <span class="meta-value">Identity</span>
+                <span class="meta-label">Роль</span>
+                <span class="meta-value">Главная героиня</span>
               </div>
               <div class="meta-row">
-                <span class="meta-label">Surface</span>
-                <span class="meta-value">Ivory</span>
+                <span class="meta-label">Голос</span>
+                <span class="meta-value">Манака Ивами</span>
               </div>
             </div>
           </article>
 
           <article class="info-card">
-            <h3 class="card-title">Mahiru</h3>
+            <h3 class="card-title">Образ</h3>
             <p class="card-body">
-              The fan-page signal remains intact, but the styling now reads as quiet editorial material instead of a decorative shrine.
+              Её визуальный код — мягкий, домашний и чистый: светлые льняные волосы, карамельные глаза, кремовые фоны, тёплый свет и аккуратная школьная форма.
             </p>
-            <a class="card-link" href="#quote">Read quote &rarr;</a>
+            <a class="card-link" href="#quote">К цитате &rarr;</a>
             <div class="card-meta">
               <div class="meta-row">
-                <span class="meta-label">Category</span>
-                <span class="meta-value">Fan page</span>
+                <span class="meta-label">Настрой</span>
+                <span class="meta-value">Тихая повседневность</span>
               </div>
               <div class="meta-row">
-                <span class="meta-label">Accent</span>
-                <span class="meta-value">Underline</span>
+                <span class="meta-label">Акцент</span>
+                <span class="meta-value">Карамель</span>
               </div>
             </div>
           </article>
 
           <article class="info-card">
-            <h3 class="card-title">Links</h3>
-            <p class="card-body">
-              Telegram and GitHub are the only outbound actions. Both are visible in the editorial card and navigation.
-            </p>
-            <a class="card-link" href="https://github.com/Samuray4ik04" target="_blank" rel="noopener noreferrer">Open GitHub &rarr;</a>
+            <h3 class="card-title">Палитра</h3>
+            <div class="palette-grid" aria-label="Палитра Махиру">
+              <div class="swatch">
+                <span class="swatch-chip" style="background:#fff8ec"></span>
+                <span><span class="swatch-name">Кремовый свет</span><span class="swatch-hex">#fff8ec</span></span>
+              </div>
+              <div class="swatch">
+                <span class="swatch-chip" style="background:#e8d39b"></span>
+                <span><span class="swatch-name">Льняной блонд</span><span class="swatch-hex">#e8d39b</span></span>
+              </div>
+              <div class="swatch">
+                <span class="swatch-chip" style="background:#b87935"></span>
+                <span><span class="swatch-name">Карамельные глаза</span><span class="swatch-hex">#b87935</span></span>
+              </div>
+              <div class="swatch">
+                <span class="swatch-chip" style="background:#9f3b3f"></span>
+                <span><span class="swatch-name">Красный бант</span><span class="swatch-hex">#9f3b3f</span></span>
+              </div>
+            </div>
             <div class="card-meta">
               <div class="meta-row">
-                <span class="meta-label">Category</span>
-                <span class="meta-value">Contact</span>
+                <span class="meta-label">Фон</span>
+                <span class="meta-value">Слоновая кость</span>
               </div>
               <div class="meta-row">
-                <span class="meta-label">Status</span>
-                <span class="meta-value">Public</span>
+                <span class="meta-label">Контраст</span>
+                <span class="meta-value">Мягкий</span>
               </div>
             </div>
           </article>
@@ -783,20 +849,20 @@
 
       <section class="quote-band" id="quote" aria-labelledby="quote-title">
         <div>
-          <p class="section-kicker">Archived Quote</p>
-          <blockquote id="quote-title">Bitte... ich bin doch nicht allein?</blockquote>
+          <p class="section-kicker">Цитата</p>
+          <blockquote id="quote-title" lang="de">Bitte... ich bin doch nicht allein? Du bist doch meine Rettung?</blockquote>
         </div>
         <div>
           <p class="quote-text">
-            Du bist doch meine Rettung? The line stays as the emotional center, but the page lets type carry the emphasis instead of heavy visual effects.
+            Немецкую фразу оставил как эмоциональный центр страницы. Вокруг неё — спокойная русская подача, без лишних эффектов и без потери мягкого настроения Махиру.
           </p>
           <p class="quote-jp" lang="ja">お願い...一人じゃないよね？あなたは私の救いだから</p>
         </div>
       </section>
 
       <footer class="footer">
-        <span class="footer-label">Ad Gloriam Aeternam</span>
-        <p>Mahiru Shiina Fan Page — Est. 2024</p>
+        <span class="footer-label">Фан-страница</span>
+        <p>Махиру Сиина — с 2024 года</p>
       </footer>
     </main>
   </div>
