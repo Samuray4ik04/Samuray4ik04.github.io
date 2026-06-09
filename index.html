@@ -7,14 +7,15 @@
   <meta name="description" content="Махиру Сиина — главная героиня «Ангел по соседству меня балует». Тёплая страница в редакционном стиле.">
   <meta property="og:title" content="Mahiru Shiina · Samuray43k">
   <meta property="og:description" content="Льняной блонд, карамельные глаза, тихая повседневность. Страница о Махиру Сиине.">
-  <meta property="og:image" content="avatar.jpg">
+  <meta property="og:image" content="https://samuray4ik04.github.io/avatar-800.jpg">
+  <meta property="og:url" content="https://samuray4ik04.github.io/">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#fff8ec">
-  <link rel="icon" href="avatar.jpg" type="image/jpeg">
+  <link rel="icon" href="favicon.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -42,11 +43,11 @@
       --halo:         255, 220, 130;
 
       /* fonts */
-      --f-serif:    "Playfair Display", "Cormorant Garamond", Georgia, serif;
-      --f-elegant:  "Cormorant Garamond", "Playfair Display", Georgia, serif;
+      --f-serif:    "Playfair Display", Georgia, serif;
+      --f-elegant:  "Playfair Display", Georgia, serif;
       --f-sans:     "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      --f-mono:     "JetBrains Mono", ui-monospace, monospace;
-      --f-jp:       "Noto Serif JP", "Playfair Display", serif;
+      --f-mono:     ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+      --f-jp:       "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", serif;
 
       /* layout */
       --pad:        clamp(20px, 5vw, 56px);
@@ -744,6 +745,85 @@
       letter-spacing: -0.01em;
     }
 
+    /* ===== AUTHOR ===== */
+    .author-band {
+      display: flex;
+      align-items: center;
+      gap: clamp(24px, 4vw, 48px);
+      padding: clamp(32px, 5vw, 52px);
+      background: linear-gradient(135deg, var(--cream) 0%, var(--ivory-warm) 60%, var(--paper) 100%);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .author-band::before {
+      content: "";
+      position: absolute;
+      bottom: -70px; left: -70px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(244, 200, 196, 0.45) 0%, transparent 70%);
+      filter: blur(22px);
+      pointer-events: none;
+    }
+    .author-mark {
+      flex: 0 0 auto;
+      width: clamp(96px, 14vw, 132px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 35% 30%, #fff 0%, var(--ivory-warm) 55%, var(--ivory-deep) 100%);
+      box-shadow:
+        0 18px 44px -18px rgba(138, 87, 31, 0.4),
+        inset 0 0 0 5px rgba(255, 248, 236, 0.9),
+        inset 0 0 0 6px rgba(212, 175, 82, 0.55);
+    }
+    .author-mark span {
+      font-family: var(--f-jp);
+      font-size: clamp(40px, 6vw, 56px);
+      color: var(--caramel-deep);
+      transform: translateY(-2px);
+    }
+    .author-body { position: relative; min-width: 0; }
+    .author-name {
+      margin: 10px 0 6px;
+      font-size: clamp(24px, 3.4vw, 38px);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      overflow-wrap: anywhere;
+    }
+    .author-bio {
+      margin: 0 0 6px;
+      font-family: var(--f-elegant);
+      font-style: italic;
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--caramel-deep);
+    }
+    .author-note {
+      margin: 0 0 18px;
+      font-size: 14px;
+      color: var(--ink-muted);
+    }
+    .author-link {
+      display: inline-block;
+      padding: 10px 22px;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: background-color 200ms ease, transform 200ms ease;
+    }
+    .author-link:hover, .author-link:focus-visible {
+      background: var(--caramel-deep);
+      transform: translateY(-1px);
+    }
+
     /* ===== FOOTER ===== */
     footer {
       padding: 40px var(--pad) 60px;
@@ -761,20 +841,21 @@
     footer .heart { color: var(--ribbon); }
     footer a { color: var(--caramel-deep); text-decoration: none; border-bottom: 1px dotted var(--caramel); }
 
-    /* ===== REVEAL (CSS-only staggered fade-in) ===== */
-    .js .reveal {
-      animation: revealIn 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-      animation-delay: var(--rev-d, 150ms);
+    /* ===== REVEAL (по скроллу, через IntersectionObserver) ===== */
+    @media (prefers-reduced-motion: no-preference) {
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                    transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .js .reveal.in { opacity: 1; transform: none; }
     }
-    @keyframes revealIn {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: none; }
+
+    /* пауза анимаций, когда вкладка скрыта */
+    .paused *, .paused *::before, .paused *::after {
+      animation-play-state: paused !important;
     }
-    .js .reveal:nth-of-type(1) { --rev-d: 100ms; }
-    .js .reveal:nth-of-type(2) { --rev-d: 220ms; }
-    .js .reveal:nth-of-type(3) { --rev-d: 340ms; }
-    .js .reveal:nth-of-type(4) { --rev-d: 460ms; }
-    .js .reveal:nth-of-type(5) { --rev-d: 580ms; }
 
     :focus-visible {
       outline: 2px solid var(--caramel);
@@ -804,6 +885,7 @@
       .portrait { max-width: 320px; }
       .profile-band { padding: 22px; border-radius: 22px; }
       .quote { padding: 28px 22px; border-radius: 24px; }
+      .author-band { flex-direction: column; text-align: center; padding: 28px 22px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -829,6 +911,7 @@
         <a class="nav-link" href="#profile">профиль</a>
         <a class="nav-link" href="#palette">палитра</a>
         <a class="nav-link" href="#quote">цитата</a>
+        <a class="nav-link" href="#author">автор</a>
       </div>
       <a class="nav-cta" href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer">telegram</a>
     </nav>
@@ -872,11 +955,15 @@
         <div class="halo"></div>
         <div class="portrait-video">
           <video autoplay muted loop playsinline>
-            <source src="bg.mp4" type="video/mp4">
+            <source src="bg-loop.mp4" type="video/mp4">
           </video>
         </div>
         <div class="portrait-frame">
-          <img src="avatar.jpg" alt="Портрет Махиру Сиины" decoding="async">
+          <picture>
+            <source srcset="avatar-800.webp" type="image/webp">
+            <img src="avatar-800.jpg" alt="Портрет Махиру Сиины"
+                 width="800" height="800" decoding="async" fetchpriority="high">
+          </picture>
         </div>
         <span class="portrait-spark s1"><svg viewBox="0 0 24 24"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg></span>
         <span class="portrait-spark s2"><svg viewBox="0 0 24 24"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg></span>
@@ -1038,7 +1125,7 @@
         </div>
         <div class="swatch" role="listitem">
           <div class="chip" style="background: linear-gradient(135deg,#26364f,#1b2438);"></div>
-          <div class="meta"><span class="name">Школьный навy</span><span class="hex">#26364f</span></div>
+          <div class="meta"><span class="name">Школьный нэйви</span><span class="hex">#26364f</span></div>
         </div>
         <div class="swatch" role="listitem">
           <div class="chip" style="background: linear-gradient(135deg,#9f3b3f,#7b282c);"></div>
@@ -1062,6 +1149,19 @@
             </p>
             <p class="jp" lang="ja">お願い... 一人じゃないよね？ あなたは私の救いだから。</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="author" aria-labelledby="author-title">
+      <div class="author-band">
+        <div class="author-mark" aria-hidden="true"><span>侍</span></div>
+        <div class="author-body">
+          <span class="kicker">от автора</span>
+          <h2 class="author-name" id="author-title" aria-label="Samuray43k">𝚂𝚊𝚖𝚞𝚛𝚊𝚢𝟺𝟹𝚔</h2>
+          <p class="author-bio">«Любовь — это когда рядом светлее» 💛</p>
+          <p class="author-note">Эта страница — маленькое тому подтверждение.</p>
+          <a class="author-link" href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer">написать в telegram</a>
         </div>
       </div>
     </section>
@@ -1097,10 +1197,25 @@
       root.appendChild(frag);
     })();
 
+    // ====== REVEAL ПО СКРОЛЛУ ======
+    (function () {
+      const targets = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) ||
+          matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(t => t.classList.add('in'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      targets.forEach(t => io.observe(t));
+    })();
+
     // ====== СТОП АНИМАЦИЙ В СКРЫТОЙ ВКЛАДКЕ ======
     document.addEventListener('visibilitychange', () => {
-      const root = document.documentElement;
-      root.style.setProperty('animation-play-state', document.hidden ? 'paused' : 'running');
+      document.documentElement.classList.toggle('paused', document.hidden);
     });
   </script>
 </body>
