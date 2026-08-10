@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — страница не найдена · Samuray43k</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F0EEE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#191917" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bone: #F0EEE6; --line: #DCD8CA;
+      --ink: #141413; --muted: #63605A; --clay-ink: #9C4F35; --clay: #CC785C;
+      --grain-op: .32; --grain-mode: multiply;
+      --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+      --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+      --gut: clamp(22px, 6vw, 44px);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bone: #191917; --line: #34322C;
+        --ink: #F0EEE6; --muted: #A8A39A; --clay-ink: #DE9078;
+        --grain-op: .18; --grain-mode: soft-light;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-content: center;
+      padding: var(--gut);
+      background: var(--bone);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: var(--grain-op);
+      mix-blend-mode: var(--grain-mode);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    main { position: relative; width: min(100%, 30rem); }
+
+    .code {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      color: var(--clay-ink);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(52px, 13vw, 88px);
+      font-weight: 400;
+      line-height: .96;
+      letter-spacing: -.032em;
+    }
+    .msg {
+      margin-top: 18px;
+      padding-left: 20px;
+      border-left: 2px solid var(--clay);
+      color: var(--muted);
+      max-width: 34ch;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      width: 100%;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .back span { color: var(--clay-ink); transition: transform .4s cubic-bezier(.2,.75,.2,1); display: inline-block; }
+    .back:hover span { transform: translateX(-5px); }
+    :focus-visible { outline: 2px solid var(--clay-ink); outline-offset: 3px; }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main>
+    <p class="code">Ошибка 404</p>
+    <h1>Пусто</h1>
+    <p class="msg">Такой страницы здесь нет. Бывает&nbsp;— вайб увёл не туда.</p>
+    <a class="back" href="/"><span aria-hidden="true">←</span> на главную</a>
+  </main>
+</body>
+</html>
