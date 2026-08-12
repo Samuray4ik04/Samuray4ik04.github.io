@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Samuray43k — лютый вайбкодер</title>
-  <meta name="description" content="Личная страница Samuray43k. Лютый вайбкодер. Telegram, GitHub, TikTok — всё в одном месте.">
+  <title>Samuray43k — самиздат № 43</title>
+  <meta name="description" content="Личная страница Samuray43k. Лютый вайбкодер. Telegram, GitHub, TikTok — всё в одном месте. Тираж 1 экземпляр, копируй свободно.">
   <link rel="canonical" href="https://samuray4ik04.github.io/">
 
   <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:url" content="https://samuray4ik04.github.io/">
   <meta property="og:title" content="Samuray43k — лютый вайбкодер">
-  <meta property="og:description" content="«Любовь — это когда рядом светлее» · telegram, github, tiktok">
+  <meta property="og:description" content="Самиздат № 43 · тираж 1 экз. · копируй и распространяй">
   <meta property="og:image" content="https://samuray4ik04.github.io/og-cover.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -21,442 +21,499 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Samuray43k — лютый вайбкодер">
-  <meta name="twitter:description" content="«Любовь — это когда рядом светлее» · telegram, github, tiktok">
+  <meta name="twitter:description" content="Самиздат № 43 · тираж 1 экз. · копируй и распространяй">
   <meta name="twitter:image" content="https://samuray4ik04.github.io/og-cover.jpg">
 
-  <meta name="theme-color" content="#F0EEE6" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#191917" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#DCD8CB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="ava-600.webp" type="image/webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;500;700&family=PT+Mono&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
-       Samuray43k — личная страница
-       Палитра Anthropic: ivory · book cloth · kraft · slate
+       Samuray43k — самиздат № 43
+       Ксерокс-зин: газетная бумага, чёрная и красная краска,
+       непопадание красок, растр, скотч.
        ============================================================ */
 
     :root {
       color-scheme: light dark;
 
-      --bone:      #F0EEE6;  /* фон страницы */
-      --paper:     #FAF9F5;  /* карточки */
-      --sunk:      #E7E4D9;  /* утопленные плашки */
-      --line:      #DCD8CA;  /* волосяная линия */
-      --line-soft: #E6E2D6;
+      --news:    #DCD8CB;  /* газетная бумага          */
+      --news-2:  #D0CBBB;  /* тень на сгибе            */
+      --soot:    #14110E;  /* чёрная краска  13.2:1    */
+      --soot-2:  #4A443C;  /* серый тон       6.8:1    */
+      --riot:    #E8443A;  /* красная краска, заливки  */
+      --riot-ink:#A81219;  /* красный текст   5.3:1    */
+      --on-riot: #14110E;  /* по красному     4.8:1    */
+      --tape:    rgba(255,255,255,.42);
 
-      --ink:       #141413;  /* 15.9:1 */
-      --ink-2:     #3D3A34;  /*  9.8:1 */
-      --muted:     #63605A;  /*  5.4:1 */
+      /* поколение копии: всё, что портится при перепечатке */
+      --gen: 0;
+      --mis:   calc(var(--gen) * 1.1px);            /* непопадание краски */
+      --dirt:  calc(.30 + var(--gen) * .075);       /* грязь и растр      */
+      --crush: calc(1 + var(--gen) * .085);         /* пережатый контраст */
+      --smear: calc(var(--gen) * .07px);           /* замыленный тонер   */
+      --tilt:  calc(var(--gen) * .16deg);           /* косо лёг лист      */
 
-      --clay:      #CC785C;  /* book cloth — заливки и линии */
-      --clay-ink:  #9C4F35;  /*  5.0:1 — акцентный текст */
-      --on-clay:   #141413;  /*  5.6:1 на заливке */
-      --on-clay-2: #2E2620;  /*  4.5:1 на заливке */
+      --stencil: "Oswald", "Haettenschweiler", "Arial Narrow", sans-serif;
+      --type:    "PT Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --marker:  "Caveat", "Bradley Hand", cursive;
 
-      --grain-op:  .32;
-      --grain-mode: multiply;
-      --shade:     20, 20, 19;
-
-      --serif: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
-      --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, monospace;
-
-      --r-ava: 26px;
-      --gut:  clamp(22px, 6vw, 44px);
-      --ease: cubic-bezier(.2, .75, .2, 1);
+      --gut:  clamp(20px, 5.5vw, 48px);
+      --ease: cubic-bezier(.2, .8, .2, 1);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bone:      #191917;
-        --paper:     #211F1C;
-        --sunk:      #232120;
-        --line:      #34322C;
-        --line-soft: #2B2925;
-
-        --ink:       #F0EEE6;  /* 15.2:1 */
-        --ink-2:     #D7D3C8;  /* 11.8:1 */
-        --muted:     #A8A39A;  /*  7.0:1 */
-
-        --clay:      #CC785C;
-        --clay-ink:  #DE9078;  /*  7.0:1 */
-        --on-clay:   #191917;
-        --on-clay-2: #2E2620;
-
-        --grain-op:  .18;
-        --grain-mode: soft-light;
-        --shade:     0, 0, 0;
+        --news:    #121110;  /* ночная смена: печать в негативе */
+        --news-2:  #1C1A17;
+        --soot:    #E8E4D8;  /* 14.8:1 */
+        --soot-2:  #9C968A;  /*  6.4:1 */
+        --riot:    #E8443A;
+        --riot-ink:#FF5C4E;  /*  6.2:1 */
+        --on-riot: #121110;
+        --tape:    rgba(255,255,255,.10);
       }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { -webkit-text-size-adjust: 100%; }
 
     body {
       min-height: 100svh;
-      background: var(--bone);
-      color: var(--ink);
-      font-family: var(--serif);
-      font-size: 17px;
-      line-height: 1.6;
-      font-optical-sizing: auto;
+      background: var(--news);
+      color: var(--soot);
+      font-family: var(--type);
+      font-size: 15px;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
       overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    img { display: block; max-width: 100%; height: auto; }
     ul { list-style: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; }
 
     :focus-visible {
-      outline: 2px solid var(--clay-ink);
+      outline: 3px solid var(--riot-ink);
       outline-offset: 3px;
-      border-radius: 3px;
-    }
-    ::selection { background: var(--clay); color: var(--on-clay); }
-
-    /* ---- зерно бумаги ------------------------------------------------ */
-    .grain {
-      position: fixed;
-      inset: 0;
-      z-index: 90;
-      pointer-events: none;
-      opacity: var(--grain-op);
-      mix-blend-mode: var(--grain-mode);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ---- сетка -------------------------------------------------------- */
-    .shell {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 41rem);
-      margin-inline: auto;
-      padding-inline: var(--gut);
+    /* ---------- грязь ксерокса поверх всего ---------- */
+
+    .dirt {
+      position: fixed; inset: -20%;
+      pointer-events: none; z-index: 9;
+      opacity: var(--dirt);
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/></filter><rect width='220' height='220' filter='url(%23n)' opacity='.55'/></svg>");
+    }
+    @media (prefers-color-scheme: dark) { .dirt { mix-blend-mode: screen; opacity: calc(var(--dirt) * .5); } }
+
+    /* ---------- лист ---------- */
+
+    .sheet {
+      position: relative; z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(18px, 4vw, 34px) var(--gut) 0;
+      filter: contrast(var(--crush)) blur(var(--smear));
+      transform: rotate(var(--tilt));
+      transition: filter .5s var(--ease), transform .5s var(--ease);
     }
 
-    .hr { height: 1px; background: var(--line); border: 0; }
-
-    /* ---- верхняя строка ---------------------------------------------- */
-    .bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 22px 0;
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: .02em;
-      color: var(--muted);
-      border-bottom: 1px solid var(--line);
-    }
-    .mark { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); }
-    .mark svg { width: 13px; height: 13px; fill: var(--clay); transition: transform .8s var(--ease); }
-    .mark:hover svg { transform: rotate(180deg) scale(1.14); }
-
-    .live { display: inline-flex; align-items: center; gap: 8px; }
-    .live i {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--clay);
-      box-shadow: 0 0 0 0 rgba(204, 120, 92, .5);
-      animation: ping 2.6s ease-out infinite;
-    }
-    @keyframes ping {
-      0%       { box-shadow: 0 0 0 0   rgba(204, 120, 92, .5); }
-      70%,100% { box-shadow: 0 0 0 7px rgba(204, 120, 92, 0); }
+    /* красная краска съезжает от чёрной — чем больше копий, тем сильнее */
+    .red-layer {
+      translate: var(--mis) calc(var(--mis) * -.7);
+      transition: translate .5s var(--ease);
     }
 
-    /* ---- шапка -------------------------------------------------------- */
-    .intro { padding: clamp(44px, 9vw, 76px) 0 clamp(38px, 7vw, 60px); }
-
-    .ava {
-      position: relative;
-      width: clamp(124px, 27vw, 156px);
-      aspect-ratio: 1;
-      margin-bottom: clamp(28px, 5vw, 38px);
-      border-radius: var(--r-ava);
-      background: var(--paper);
-      overflow: hidden;              /* обрезает картинку при hover-зуме */
-      box-shadow:
-        0 0 0 1px var(--line),
-        0 2px 4px  -2px rgba(var(--shade), .10),
-        0 18px 40px -16px rgba(var(--shade), .28),
-        0 0 68px -12px rgba(204, 120, 92, .45);  /* тёплое свечение book cloth */
+    /* лист повело: базовый наклон + дрожь очередной копии */
+    .role, .handle, .scrawl, .photo, .creed li, .row {
+      rotate: calc(var(--rot, 0deg) + var(--jr, 0deg));
+      transition: rotate .3s var(--ease);
     }
-    /* radius задан явно: <picture> между .ava и <img> ломает inherit */
-    .ava picture { display: contents; }
-    .ava img {
-      width: 100%; height: 100%;
-      border-radius: var(--r-ava);
-      object-fit: cover;
-      transition: transform .7s var(--ease);
-    }
-    .ava:hover img { transform: scale(1.04); }
 
-    .eyebrow {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      font-weight: 500;
-      letter-spacing: .19em;
+    /* ---------- шапка ---------- */
+
+    .head {
+      display: flex; align-items: center; gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--soot);
+      font-family: var(--type);
+      font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--soot-2);
+    }
+    .head .anarchy { flex: none; width: 26px; height: 26px; fill: none; stroke: var(--riot); stroke-width: 2.1; }
+    .head .issue { color: var(--soot); }
+    .head .spread { margin-left: auto; }
+    @media (max-width: 560px) { .head .spread { display: none; } }
+
+    /* ---------- заголовок ---------- */
+
+    .top { padding: clamp(26px, 6vw, 44px) 0 clamp(20px, 5vw, 34px); }
+
+    .handle {
+      font-family: var(--stencil);
+      font-weight: 700;
+      font-size: clamp(52px, 17vw, 132px);
+      line-height: .82;
+      letter-spacing: -.02em;
       text-transform: uppercase;
-      color: var(--clay-ink);
-      margin-bottom: 18px;
     }
-
-    h1 {
-      font-size: clamp(50px, 12.5vw, 88px);
-      font-weight: 400;
-      line-height: .96;
-      letter-spacing: -.032em;
-      color: var(--ink);
-    }
+    .handle > span { display: block; }
+    .handle .num { color: var(--riot-ink); }
+    .handle .b { margin-left: .06em; }
 
     .role {
-      margin-top: 14px;
-      font-size: clamp(19px, 3.4vw, 23px);
-      font-style: italic;
-      color: var(--ink-2);
-    }
-
-    .quote {
-      margin-top: clamp(26px, 5vw, 34px);
-      padding-left: 20px;
-      border-left: 2px solid var(--clay);
-      font-size: clamp(16px, 2.7vw, 18px);
-      line-height: 1.55;
-      color: var(--muted);
-    }
-
-    /* ---- секции ------------------------------------------------------- */
-    .sec { padding: clamp(34px, 6vw, 52px) 0; border-top: 1px solid var(--line); }
-
-    .sec-label {
-      font-family: var(--mono);
-      font-size: 11.5px;
+      display: inline-block;
+      margin-top: 18px;
+      padding: 6px 16px 8px;
+      background: var(--riot);
+      color: var(--on-riot);
+      font-family: var(--stencil);
       font-weight: 500;
-      letter-spacing: .19em;
+      font-size: clamp(17px, 4.2vw, 25px);
+      letter-spacing: .1em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 26px;
+      --rot: -1.2deg;
     }
 
-    .lede { font-size: 21px; line-height: 1.58; color: var(--ink-2); max-width: 42ch; }
+    /* ---------- фото ---------- */
 
-    /* ---- ссылки ------------------------------------------------------- */
-    .links { border-top: 1px solid var(--line-soft); }
-    .links li { border-bottom: 1px solid var(--line-soft); }
-    .links li:last-child { border-bottom: 0; }
+    .plate { position: relative; margin: clamp(28px, 6vw, 40px) 0; }
+
+    .photo {
+      position: relative;
+      width: clamp(190px, 48vw, 278px);
+      --rot: -2.4deg;
+    }
+    .photo::before {   /* красный прогон не попал в чёрный */
+      content: "";
+      position: absolute; inset: 0;
+      border: 3px solid var(--riot);
+      transform: translate(calc(8px + var(--mis)), calc(8px + var(--mis)));
+      transition: transform .5s var(--ease);
+    }
+    .photo img {
+      position: relative;
+      width: 100%;
+      filter: grayscale(1) contrast(1.65) brightness(1.06);
+      mix-blend-mode: multiply;
+    }
+    .photo::after {    /* печатный растр */
+      content: "";
+      position: absolute; inset: 0;
+      background-image: radial-gradient(var(--soot) 34%, transparent 36%);
+      background-size: 3px 3px;
+      mix-blend-mode: multiply;
+      opacity: .3;
+      pointer-events: none;
+    }
+    @media (prefers-color-scheme: dark) {
+      .photo img { filter: grayscale(1) contrast(1.4) brightness(.82); mix-blend-mode: screen; }
+      .photo::after { mix-blend-mode: screen; opacity: .16; }
+    }
+
+    .tape {
+      position: absolute; z-index: 2;
+      width: 96px; height: 26px;
+      background: var(--tape);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.25);
+    }
+    .tape.a { top: -13px; left: -26px; transform: rotate(-24deg); }
+    .tape.b { bottom: -11px; right: -28px; transform: rotate(-18deg); }
+
+    .scrawl {
+      margin-top: 16px;
+      max-width: 320px;
+      font-family: var(--marker);
+      font-weight: 700;
+      font-size: clamp(22px, 5.6vw, 31px);
+      line-height: 1.15;
+      color: var(--riot-ink);
+      --rot: -3.5deg;
+    }
+    .scrawl .arrow { display: block; font-size: 1.4em; line-height: .6; }
+    .scrawl .side { display: none; }
+
+    @media (min-width: 620px) {
+      .plate { display: grid; grid-template-columns: auto 1fr; gap: 34px; align-items: center; }
+      .scrawl { position: static; }
+      .scrawl .up { display: none; }
+      .scrawl .side { display: inline; font-size: 1.2em; margin-right: .2em; }
+    }
+
+    /* ---------- секции ---------- */
+
+    .sec { padding: clamp(30px, 7vw, 46px) 0; border-top: 2px solid var(--soot); }
+
+    .label {
+      font-family: var(--type);
+      font-size: 11px; font-weight: 400;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--soot-2);
+      margin-bottom: 20px;
+    }
+    .label::before { content: "▮ "; color: var(--riot-ink); }
+
+    .creed { display: grid; gap: 14px; }
+    .creed li {
+      font-family: var(--stencil);
+      font-weight: 500;
+      font-size: clamp(20px, 5vw, 30px);
+      line-height: 1.18;
+      text-transform: uppercase;
+      text-indent: -1.1em;
+      padding-left: 1.1em;
+    }
+    .creed li::before { content: "× "; color: var(--riot-ink); }
+
+    /* ---------- ссылки ---------- */
+
+    .links { display: grid; gap: 12px; }
 
     .row {
-      position: relative;
-      isolation: isolate;
-      display: grid;
-      grid-template-columns: 2.1rem 1.6rem 1fr auto;
-      align-items: center;
-      gap: 0 18px;
-      padding: 19px 14px;
-      margin-inline: -14px;
+      display: flex; align-items: center; gap: 14px;
+      padding: 15px 16px;
+      border: 2px solid var(--soot);
+      background: var(--news);
+      box-shadow: 5px 5px 0 var(--soot);
+      transition: translate .16s var(--ease), rotate .16s var(--ease), background-color .16s, box-shadow .16s var(--ease);
     }
-    .row::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: var(--clay);
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform .55s var(--ease);
-    }
-    .row > * { position: relative; z-index: 1; }
-    .row:hover::before, .row:focus-visible::before { transform: scaleX(1); }
+    .links li:nth-child(1) .row { --rot: -.45deg; }
+    .links li:nth-child(2) .row { --rot:  .4deg; }
+    .links li:nth-child(3) .row { --rot: -.3deg; }
 
-    .row .num {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .1em;
-      color: var(--muted);
-      transition: color .3s var(--ease);
-    }
-    .row .ico { width: 19px; height: 19px; fill: var(--clay-ink); transition: fill .3s var(--ease); }
-    .row .name { display: block; font-size: 19px; letter-spacing: -.01em; color: var(--ink); transition: color .3s var(--ease); }
-    .row .sub {
+    .row .ico { flex: none; width: 22px; height: 22px; fill: currentColor; }
+    .row .who { flex: 1; min-width: 0; }
+    .row .name {
       display: block;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-      transition: color .3s var(--ease);
-      overflow-wrap: anywhere;
+      font-family: var(--stencil); font-weight: 700;
+      font-size: 19px; letter-spacing: .04em; text-transform: uppercase;
+      line-height: 1.15;
     }
-    .row .go {
-      font-family: var(--mono);
-      font-size: 17px;
-      color: var(--clay-ink);
-      transition: transform .45s var(--ease), color .3s var(--ease);
+    .row .at {
+      display: block;
+      font-size: 12px; color: var(--soot-2);
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .row .go { flex: none; font-family: var(--stencil); font-size: 22px; }
+
+    .row:hover, .row:focus-visible {
+      background: var(--riot);
+      color: var(--on-riot);
+      --rot: 0deg;
+      translate: -3px -3px;
+      box-shadow: 9px 9px 0 var(--soot);
+    }
+    .row:hover .at, .row:focus-visible .at { color: var(--on-riot); }
+    .row:active { --rot: 0deg; translate: 3px 3px; box-shadow: 1px 1px 0 var(--soot); }
+
+    /* ---------- ксерокс ---------- */
+
+    .xerox {
+      display: grid; gap: 16px;
+      padding: 20px;
+      border: 2px dashed var(--soot);
+      background: var(--news-2);
+    }
+    .xerox .cap {
+      font-size: 12px; line-height: 1.5; color: var(--soot-2);
+    }
+    .run {
+      justify-self: start;
+      padding: 13px 22px 14px;
+      background: var(--soot);
+      color: var(--news);
+      font-family: var(--stencil); font-weight: 700;
+      font-size: clamp(15px, 3.6vw, 19px);
+      letter-spacing: .08em; text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 var(--riot);
+      transition: translate .12s var(--ease), box-shadow .12s var(--ease);
+    }
+    .run:hover { translate: -2px -2px; box-shadow: 7px 7px 0 var(--riot); }
+    .run:active { translate: 4px 4px; box-shadow: 1px 1px 0 var(--riot); }
+
+    .meter { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+    .meter i { width: 15px; height: 15px; border: 2px solid var(--soot); }
+    .meter i.on { background: var(--riot); }
+    .meter .count {
+      font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--soot-2); margin-left: 4px;
     }
 
-    .row:hover .num,  .row:focus-visible .num  { color: var(--on-clay-2); }
-    .row:hover .ico,  .row:focus-visible .ico  { fill: var(--on-clay); }
-    .row:hover .name, .row:focus-visible .name { color: var(--on-clay); }
-    .row:hover .sub,  .row:focus-visible .sub  { color: var(--on-clay-2); }
-    .row:hover .go,   .row:focus-visible .go   { color: var(--on-clay); transform: translateX(5px); }
+    /* ---------- выходные данные ---------- */
 
-    /* ---- колофон ------------------------------------------------------ */
-    .spec { border-top: 1px solid var(--line-soft); }
-    .spec div {
-      display: grid;
-      grid-template-columns: 8.5rem 1fr;
-      gap: 4px 18px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--line-soft);
+    .imprint { display: grid; gap: 10px; font-size: 12.5px; }
+    .imprint div { display: flex; gap: 12px; align-items: baseline; }
+    .imprint dt {
+      flex: none; width: 96px;
+      color: var(--soot-2);
+      text-transform: uppercase; letter-spacing: .1em; font-size: 10.5px;
     }
-    .spec div:last-child { border-bottom: 0; }
-    .spec dt {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-top: 3px;
-    }
-    .spec dd { font-size: 16px; color: var(--ink-2); }
+    .imprint dd { color: var(--soot); }
 
-    /* ---- подвал ------------------------------------------------------- */
+    /* ---------- подвал ---------- */
+
     footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 8px 20px;
-      padding: 26px 0 48px;
-      border-top: 1px solid var(--line);
-      font-family: var(--mono);
-      font-size: 11.5px;
-      letter-spacing: .04em;
-      color: var(--muted);
+      display: flex; flex-wrap: wrap; gap: 8px 18px;
+      padding: 20px 0 30px;
+      border-top: 2px solid var(--soot);
+      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--soot-2);
     }
-    footer a { color: var(--clay-ink); border-bottom: 1px solid transparent; transition: border-color .3s var(--ease); }
-    footer a:hover { border-bottom-color: var(--clay); }
+    footer .free { color: var(--riot-ink); }
+    footer .last { margin-left: auto; }
+    footer a { border-bottom: 1px solid currentColor; }
 
-    /* ---- появление ---------------------------------------------------- */
-    [data-rise] {
-      animation: rise .8s var(--ease) both;
-      animation-delay: calc(var(--i, 0) * 70ms + 40ms);
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: none; }
-    }
+    /* ---------- выход из-под пресса ---------- */
 
-    /* ---- адаптив ------------------------------------------------------ */
-    @media (max-width: 430px) {
-      .row { grid-template-columns: 1.6rem 1fr auto; }
-      .row .num { display: none; }
-      .spec div { grid-template-columns: 1fr; }
-    }
+    [data-rise] { opacity: 0; animation: rise .5s var(--ease) forwards; animation-delay: calc(var(--i) * 70ms); }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-      }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      [data-rise] { opacity: 1; }
     }
-
-    .paused *, .paused *::before, .paused *::after { animation-play-state: paused !important; }
   </style>
 </head>
-
 <body>
-  <div class="grain" aria-hidden="true"></div>
+  <div class="dirt" aria-hidden="true"></div>
 
-  <div class="shell">
-    <header class="bar">
-      <a class="mark" href="/">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l1.6 7.2 5.6-4.8-4.8 5.6 7.2 1.6-7.2 1.6 4.8 5.6-5.6-4.8-1.6 7.2-1.6-7.2-5.6 4.8 4.8-5.6L1.5 12l7.2-1.6-4.8-5.6 5.6 4.8z"/></svg>
-        <span>samuray43k</span>
-      </a>
-      <span class="live"><i aria-hidden="true"></i>на связи</span>
+  <div class="sheet">
+    <header class="head" data-rise style="--i:0">
+      <svg class="anarchy red-layer" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 4.6 4.9 19.4M12 4.6l7.1 14.8M6.6 14.2h12.6"/>
+      </svg>
+      <span><span class="issue">самиздат № 43</span> · тираж 1 экз.</span>
+      <span class="spread">копируй свободно</span>
     </header>
 
     <main>
-      <section class="intro">
-        <div class="ava" data-rise style="--i:0">
+      <section class="top">
+        <h1 class="handle" data-rise style="--i:1"><span>Samuray</span><span class="b"><span class="num red-layer">43</span>k</span></h1>
+        <p class="role red-layer" data-rise style="--i:2">лютый вайбкодер</p>
+      </section>
+
+      <div class="plate" data-rise style="--i:3">
+        <div class="photo">
+          <span class="tape a" aria-hidden="true"></span>
+          <span class="tape b" aria-hidden="true"></span>
           <picture>
             <source srcset="ava-600.webp" type="image/webp">
-            <img src="ava-600.jpg" alt="Аватар Samuray43k" width="600" height="600" fetchpriority="high" decoding="async">
+            <img src="ava-600.jpg" alt="Samuray43k" width="600" height="600" fetchpriority="high" decoding="async">
           </picture>
         </div>
+        <p class="scrawl red-layer">
+          <span class="arrow up" aria-hidden="true">↑</span><span class="arrow side" aria-hidden="true">←</span>
+          любовь — это когда рядом светлее
+        </p>
+      </div>
 
-        <p class="eyebrow" data-rise style="--i:1">личная страница</p>
-        <h1 data-rise style="--i:2">Samuray43k</h1>
-        <p class="role" data-rise style="--i:3">лютый вайбкодер</p>
-        <p class="quote" data-rise style="--i:4">«Любовь&nbsp;— это когда рядом светлее»&nbsp;💛</p>
+      <section class="sec">
+        <h2 class="label">Что я думаю по этому поводу</h2>
+        <ul class="creed">
+          <li>код пишется по вайбу, а не по тикету</li>
+          <li>сломал — значит, понял, как устроено</li>
+          <li>сделал сам — покажи другим</li>
+        </ul>
       </section>
 
-      <section class="sec" data-rise style="--i:5">
-        <h2 class="sec-label">О себе</h2>
-        <p class="lede">Пишу код по вайбу&nbsp;— остальное приложится.</p>
-      </section>
-
-      <section class="sec" data-rise style="--i:6">
-        <h2 class="sec-label">Где меня найти</h2>
+      <section class="sec">
+        <h2 class="label">Куда писать</h2>
         <ul class="links">
           <li>
             <a class="row" href="https://t.me/HolyZxc" target="_blank" rel="noopener noreferrer">
-              <span class="num">01</span>
               <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.6c.2-.9-.7-1.7-1.5-1.4L2.7 10.1c-1 .4-.9 1.8.1 2.1l4.5 1.4 1.7 5.5c.3.9 1.4 1.1 2 .5l2.5-2.4 4.6 3.4c.7.5 1.7.1 1.9-.7l1.9-15.3zM9.7 13.5l8.5-5.4c.4-.2.7.3.4.6l-7 6.4-.3 3.1-1.6-4.7z"/></svg>
-              <span><span class="name">Telegram</span><span class="sub">t.me/HolyZxc</span></span>
+              <span class="who"><span class="name">Telegram</span><span class="at">t.me/HolyZxc</span></span>
               <span class="go" aria-hidden="true">→</span>
             </a>
           </li>
           <li>
             <a class="row" href="https://github.com/Samuray4ik04" target="_blank" rel="noopener noreferrer">
-              <span class="num">02</span>
               <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.86 10.93.58.1.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.05.78 2.13v3.15c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-              <span><span class="name">GitHub</span><span class="sub">github.com/Samuray4ik04</span></span>
+              <span class="who"><span class="name">GitHub</span><span class="at">github.com/Samuray4ik04</span></span>
               <span class="go" aria-hidden="true">→</span>
             </a>
           </li>
           <li>
             <a class="row" href="https://tiktok.com/@samuray43k" target="_blank" rel="noopener noreferrer">
-              <span class="num">03</span>
               <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2c.3 1.8 1.5 3.3 3.1 4 .6.3 1.3.4 1.9.4v3.5c-1.8 0-3.5-.6-5-1.6v7.2c0 4-3.2 7.2-7.2 7.2-4 0-7.2-3.2-7.2-7.2 0-3.9 3.1-7.1 7-7.2v3.6c-1.9.1-3.5 1.7-3.5 3.6 0 2 1.7 3.7 3.7 3.7s3.7-1.7 3.7-3.7V2h3.5z"/></svg>
-              <span><span class="name">TikTok</span><span class="sub">@samuray43k</span></span>
+              <span class="who"><span class="name">TikTok</span><span class="at">@samuray43k</span></span>
               <span class="go" aria-hidden="true">→</span>
             </a>
           </li>
         </ul>
       </section>
 
-      <section class="sec" data-rise style="--i:7">
-        <h2 class="sec-label">Колофон</h2>
-        <dl class="spec">
-          <div><dt>Страница</dt><dd>один HTML-файл, без зависимостей</dd></div>
-          <div><dt>Шрифты</dt><dd>Source Serif 4 · JetBrains Mono</dd></div>
-          <div><dt>Палитра</dt><dd>ivory · book cloth · kraft</dd></div>
+      <section class="sec">
+        <h2 class="label">Ксерокс</h2>
+        <div class="xerox">
+          <p class="cap">Зин живёт, пока его копируют. Каждый прогон — копия с копии: краска съезжает, буквы плывут, лист ложится косо.</p>
+          <button class="run" id="run" type="button">Прогнать через ксерокс</button>
+          <p class="meter" id="meter" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 class="label">Выходные данные</h2>
+        <dl class="imprint">
+          <div><dt>Печать</dt><dd>один HTML-файл, без сборки и зависимостей</dd></div>
+          <div><dt>Шрифты</dt><dd>Oswald · PT Mono · Caveat</dd></div>
+          <div><dt>Краски</dt><dd>чёрная, красная — вторая не попала</dd></div>
+          <div><dt>Тираж</dt><dd>1 экз. + столько копий, сколько снимешь</dd></div>
         </dl>
       </section>
     </main>
 
     <footer>
-      <span>© <span id="y">2026</span> · samuray43k</span>
-      <span>сделано по вайбу · <a href="https://t.me/HolyZxc">рядом светлее</a></span>
+      <span class="free">копируй · распространяй · не спрашивай</span>
+      <span class="last">© <span id="y">2026</span> · <a href="https://t.me/HolyZxc">samuray43k</a></span>
     </footer>
   </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    (function () {
+      document.getElementById('y').textContent = new Date().getFullYear();
 
-    document.addEventListener('visibilitychange', function () {
-      document.documentElement.classList.toggle('paused', document.hidden);
-    });
+      var root   = document.documentElement;
+      var run    = document.getElementById('run');
+      var meter  = document.getElementById('meter');
+      var jitter = document.querySelectorAll('.row, .creed li, .role, .scrawl, .photo');
+      var MAX    = 7;
+      var gen    = 0;
+
+      function draw() {
+        root.style.setProperty('--gen', gen);
+
+        for (var i = 0; i < jitter.length; i++) {
+          jitter[i].style.setProperty('--jr', ((Math.random() - .5) * gen * .55).toFixed(2) + 'deg');
+        }
+
+        var cells = '';
+        for (var n = 1; n <= MAX; n++) cells += '<i class="' + (n <= gen ? 'on' : '') + '" aria-hidden="true"></i>';
+        meter.innerHTML = cells + '<span class="count">поколение ' + gen + ' из ' + MAX + '</span>';
+
+        run.textContent = gen >= MAX ? 'Взять чистый оригинал' : 'Прогнать через ксерокс';
+      }
+
+      run.addEventListener('click', function () {
+        gen = gen >= MAX ? 0 : gen + 1;
+        draw();
+      });
+
+      draw();
+    })();
   </script>
 </body>
 </html>
