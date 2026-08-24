@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="ava-600.webp" type="image/webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
@@ -52,13 +52,23 @@
       --mint:    #7FDCBB;   /* лента с аватарки           */
       --pine:    #23443A;   /* бант                       */
       --ice:     #4EA6DE;   /* глаза — как заливка        */
+      --haze:    #B7BFFA;   /* блик на глазах — третье пятно */
       --ice-ink: #1B6E9F;   /*  5.0:1 — тот же лёд, текст */
       --line:    color-mix(in srgb, var(--ink) 12%, transparent);
       --tag-bg:  #23443A;
       --tag-fg:  #EAF6F0;
       --sprite-blend: multiply;
 
+      /* стекло: заливка, блик по верхней кромке и светлый кант */
+      --glass:     color-mix(in srgb, var(--panel) 66%, transparent);
+      --glass-thin:color-mix(in srgb, var(--panel) 40%, transparent);
+      --glass-hi:  rgba(255, 255, 255, .75);
+      --glass-rim: rgba(255, 255, 255, .55);
+      --glass-low: rgba(255, 255, 255, .22);
+      --blur:      saturate(180%) blur(26px);
+
       --display: "Prata", Georgia, serif;
+      --quote:   "Cormorant Garamond", Georgia, serif;
       --sans:    "Manrope", "Segoe UI", system-ui, sans-serif;
       --mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -77,10 +87,17 @@
         --mint:    #8FE3C4;
         --pine:    #A8CFC0;
         --ice:     #79C2F0;
+        --haze:    #4A54A8;
         --ice-ink: #79C2F0;   /*  9.8:1 */
         --line:    color-mix(in srgb, var(--ink) 15%, transparent);
         --tag-bg:  #8FE3C4;
         --tag-fg:  #08110E;
+
+        --glass:     color-mix(in srgb, var(--panel) 62%, transparent);
+        --glass-thin:color-mix(in srgb, var(--panel) 36%, transparent);
+        --glass-hi:  rgba(255, 255, 255, .18);
+        --glass-rim: rgba(255, 255, 255, .12);
+        --glass-low: rgba(255, 255, 255, .05);
       }
     }
 
@@ -91,16 +108,30 @@
       min-height: 100svh;
       display: flex;
       flex-direction: column;
-      background:
-        radial-gradient(680px 520px at 82% -8%,  color-mix(in srgb, var(--mint) 40%, transparent), transparent 68%),
-        radial-gradient(560px 460px at -6% 34%, color-mix(in srgb, var(--ice)  20%, transparent), transparent 66%),
-        var(--paper);
+      background: var(--paper);
       color: var(--ink);
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+    }
+
+    /* пятна света под стеклом — медленно дышат */
+    body::before {
+      content: "";
+      position: fixed; inset: -25%;
+      z-index: -1;
+      background:
+        radial-gradient(30% 32% at 76% 12%, color-mix(in srgb, var(--mint) 88%, transparent), transparent 70%),
+        radial-gradient(28% 30% at 14% 34%, color-mix(in srgb, var(--ice)  50%, transparent), transparent 70%),
+        radial-gradient(30% 32% at 68% 72%, color-mix(in srgb, var(--haze) 62%, transparent), transparent 70%);
+      filter: blur(30px);
+      animation: drift 26s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(-3%, 2%, 0) scale(1.08); }
     }
 
     a { color: inherit; text-decoration: none; }
@@ -186,6 +217,10 @@
       }
     }
 
+    /* колонки сцены должны уметь сжиматься: иначе длинный адрес
+       в ссылке распирает окно за край узкого экрана */
+    .scene > * { min-width: 0; }
+
     /* спрайт */
 
     .sprite { width: min(280px, 74%); }
@@ -205,7 +240,10 @@
       content: "";
       position: absolute; inset: 0;
       border-radius: inherit;
-      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
+      box-shadow:
+        inset 0 0 0 1px var(--glass-rim),
+        inset 0  1px 0 var(--glass-hi),
+        inset 0 -1px 0 var(--glass-low);
     }
     .sprite picture { display: block; }
     .sprite img {
@@ -234,10 +272,27 @@
     .box {
       position: relative;
       padding: clamp(26px, 3.4vw, 34px) clamp(20px, 3vw, 32px) clamp(18px, 2.4vw, 24px);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      background: var(--panel);
-      box-shadow: 0 40px 70px -52px color-mix(in srgb, var(--pine) 70%, transparent);
+      border: 1px solid var(--glass-rim);
+      border-radius: 30px;
+      background: var(--glass);
+      -webkit-backdrop-filter: var(--blur);
+      backdrop-filter: var(--blur);
+      box-shadow:
+        0 44px 80px -50px color-mix(in srgb, var(--pine) 78%, transparent),
+        inset 0  1px 0 var(--glass-hi),
+        inset 0 -1px 0 var(--glass-low);
+    }
+    /* блик, съезжающий по стеклу: лежит над заливкой, но под текстом */
+    .box::before {
+      content: "";
+      position: absolute; inset: 0; z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(148deg, var(--glass-hi), transparent 44%);
+      opacity: .55;
+      pointer-events: none;
+    }
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .box { background: var(--panel); }
     }
 
     .who {
@@ -253,11 +308,13 @@
     .who svg { width: 9px; height: 9px; fill: currentColor; }
 
     .say {
-      min-height: 3em;
-      font-family: var(--display);
-      font-size: clamp(20px, 2.6vw, 28px);
-      line-height: 1.42;
-      letter-spacing: -.01em;
+      min-height: 2.7em;   /* пол в две строки: ссылки не прыгают при смене реплики */
+      font-family: var(--quote);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(25px, 3.2vw, 35px);
+      line-height: 1.34;
+      letter-spacing: 0;
       text-wrap: pretty;
     }
     .say .caret {
@@ -278,9 +335,11 @@
 
     .lines { display: grid; gap: 10px; }
     .lines li {
-      font-family: var(--display);
-      font-size: clamp(19px, 2.6vw, 26px);
-      line-height: 1.4;
+      font-family: var(--quote);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(23px, 3vw, 32px);
+      line-height: 1.34;
     }
 
     .after {
@@ -293,7 +352,9 @@
       display: inline-flex; align-items: center; gap: 9px;
       padding: 9px 17px 10px;
       border-radius: 999px;
-      background: color-mix(in srgb, var(--ink) 6%, transparent);
+      border: 1px solid var(--glass-rim);
+      background: var(--glass-thin);
+      box-shadow: inset 0 1px 0 var(--glass-hi);
       font-family: var(--mono);
       font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
       cursor: pointer;
@@ -325,9 +386,9 @@
     .opt {
       display: flex; align-items: center; gap: 12px;
       padding: 13px 14px 13px 10px;
-      border-radius: 14px;
+      border-radius: 16px;
       border: 1px solid transparent;
-      transition: background-color .16s, border-color .16s, translate .16s var(--ease);
+      transition: background-color .16s, border-color .16s, box-shadow .16s, translate .16s var(--ease);
     }
     .opt .cur {
       flex: none; width: 12px;
@@ -351,8 +412,11 @@
     .opt .go { flex: none; color: var(--mute); font-size: 15px; transition: color .16s, translate .16s var(--ease); }
 
     .opt:hover, .opt:focus-visible {
-      background: color-mix(in srgb, var(--mint) 20%, transparent);
-      border-color: color-mix(in srgb, var(--mint) 55%, transparent);
+      background: color-mix(in srgb, var(--mint) 28%, transparent);
+      border-color: var(--glass-rim);
+      box-shadow:
+        inset 0 1px 0 var(--glass-hi),
+        0 12px 26px -18px color-mix(in srgb, var(--pine) 80%, transparent);
       translate: 3px 0;
     }
     .opt:hover .cur, .opt:focus-visible .cur { opacity: 1; translate: 0 0; }
@@ -387,6 +451,7 @@
       font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
       color: var(--mute);
     }
+    footer .by b { color: var(--ice-ink); font-weight: 500; }
     footer .end { margin-left: auto; }
     footer a { color: var(--ice-ink); border-bottom: 1px solid color-mix(in srgb, var(--ice-ink) 40%, transparent); }
 
@@ -448,10 +513,10 @@
 
           <ol class="lines" id="lines">
             <li>любовь — это когда рядом светлее</li>
-            <li>код пишется по вайбу, а не по тикету</li>
-            <li>сломал — значит, понял, как устроено</li>
-            <li>сделал сам — покажи другим</li>
-            <li>вся страница — один файл, так честнее</li>
+            <li>дом — это не адрес, а человек</li>
+            <li>любовь не кричит — она просто не уходит</li>
+            <li>счастье — это когда есть кому написать «я дошёл»</li>
+            <li>не «навсегда», а «и сегодня тоже»</li>
           </ol>
 
           <div class="after" id="after" hidden>
@@ -493,13 +558,14 @@
 
       <dl class="strip">
         <div><dt>Сборка</dt><dd>один HTML-файл, без зависимостей</dd></div>
-        <div><dt>Шрифты</dt><dd>Prata · Manrope · JetBrains Mono</dd></div>
-        <div><dt>Краски</dt><dd>мята, хвоя и лёд — сняты с аватарки</dd></div>
+        <div><dt>Шрифты</dt><dd>Prata · Cormorant Garamond · Manrope · JetBrains Mono</dd></div>
+        <div><dt>Краски</dt><dd>мята, хвоя, лёд и сирень — сняты с аватарки</dd></div>
       </dl>
     </main>
 
     <footer>
       <span>отвечаю, когда не в потоке</span>
+      <span class="by">сцену собрал <b>Claude</b></span>
       <span class="end">© <span id="y">2026</span> · <a href="https://t.me/HolyZxc">samuray43k</a></span>
     </footer>
   </div>
