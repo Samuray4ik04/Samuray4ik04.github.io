@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>og-cover 1200×630</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Manrope:wght@700&family=Prata&display=swap" rel="stylesheet">
+  <style>
+    /* Карточка превью 1200×630. Те же краски и шрифты, что и на странице. */
+    :root {
+      --paper:   #EEF3F0;
+      --cel:     #F6FAF8;
+      --ink:     #101B17;
+      --mute:    #566B63;
+      --mint:    #7FDCBB;
+      --pine:    #23443A;
+      --ice-ink: #1B6E9F;
+      --display: "Prata", Georgia, serif;
+      --sans:    "Manrope", system-ui, sans-serif;
+      --mono:    "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1200px; height: 630px;
+      position: relative;
+      padding: 58px 64px;
+      background:
+        radial-gradient(680px 520px at 88% -14%, color-mix(in srgb, var(--mint) 42%, transparent), transparent 68%),
+        radial-gradient(520px 440px at -8% 40%, color-mix(in srgb, #4EA6DE 18%, transparent), transparent 66%),
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    .bar {
+      position: absolute; top: 46px; left: 64px;
+      display: flex; align-items: center; gap: 11px;
+      font-family: var(--mono);
+      font-size: 15px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--mute);
+    }
+    .bar .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--mint) 26%, transparent);
+    }
+    .bar b { color: var(--ink); font-weight: 500; }
+
+    .row {
+      display: grid;
+      grid-template-columns: 352px 1fr;
+      gap: 62px;
+      align-items: center;
+      height: 100%;
+      padding-top: 26px;
+    }
+
+    .plate {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      background: linear-gradient(168deg, var(--cel) 42%, color-mix(in srgb, var(--mint) 46%, var(--cel)) 100%);
+      box-shadow: 0 34px 70px -36px color-mix(in srgb, var(--pine) 70%, transparent);
+    }
+    .plate::after {
+      content: ""; position: absolute; inset: 0; border-radius: inherit;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
+    }
+    .plate img {
+      display: block; width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover; object-position: 50% 45%;
+      mix-blend-mode: multiply;
+    }
+
+    .name {
+      font-family: var(--display);
+      font-size: 104px;
+      line-height: .92;
+      letter-spacing: -.025em;
+    }
+    .name > span { display: block; }
+    .name .two { padding-left: .06em; }
+    .name .num {
+      color: var(--ice-ink);
+      background: linear-gradient(var(--mint), var(--mint)) 0 .82em / 100% .11em no-repeat;
+    }
+
+    .role {
+      display: flex; align-items: center; gap: 14px;
+      margin-top: 30px;
+      font-family: var(--mono);
+      font-size: 17px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--mute);
+    }
+    .role::before { content: ""; width: 56px; height: 1px; background: var(--ink); }
+
+    .where {
+      margin-top: 34px;
+      display: flex; align-items: center; gap: 14px;
+      font-weight: 700; font-size: 22px; letter-spacing: -.01em;
+    }
+    .where i { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); }
+  </style>
+</head>
+<body>
+  <p class="bar"><span class="dot"></span><span><b>сцена 43</b> · озвучка своя</span></p>
+  <div class="row">
+    <div class="plate">
+      <img src="../ava-600.jpg" alt="">
+    </div>
+    <div>
+      <p class="name"><span>Samuray</span><span class="two"><span class="num">43</span>k</span></p>
+      <p class="role">лютый вайбкодер</p>
+      <p class="where">Telegram <i></i> GitHub <i></i> TikTok</p>
+    </div>
+  </div>
+</body>
+</html>

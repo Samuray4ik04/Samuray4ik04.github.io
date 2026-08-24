@@ -3,129 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 — лист не отпечатался</title>
+  <title>404 — такой сцены нет</title>
   <meta name="description" content="Такой страницы на samuray4ik04.github.io нет.">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#DCD8CB" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#EEF3F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#08110E" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@500;700&family=PT+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
 
   <style>
     :root {
       color-scheme: light dark;
-      --news:    #DCD8CB;
-      --soot:    #14110E;
-      --soot-2:  #4A443C;
-      --riot:    #E8443A;
-      --riot-ink:#A81219;
-      --on-riot: #14110E;
-      --stencil: "Oswald", "Haettenschweiler", "Arial Narrow", sans-serif;
-      --type:    "PT Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-      --marker:  "Caveat", "Bradley Hand", cursive;
+
+      --paper:   #EEF3F0;
+      --panel:   #FBFDFC;
+      --ink:     #101B17;
+      --mute:    #566B63;
+      --mint:    #7FDCBB;
+      --pine:    #23443A;
+      --ice-ink: #1B6E9F;
+      --line:    color-mix(in srgb, var(--ink) 12%, transparent);
+      --tag-bg:  #23443A;
+      --tag-fg:  #EAF6F0;
+
+      --display: "Prata", Georgia, serif;
+      --sans:    "Manrope", "Segoe UI", system-ui, sans-serif;
+      --mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       --ease: cubic-bezier(.2, .8, .2, 1);
     }
+
     @media (prefers-color-scheme: dark) {
-      :root { --news:#121110; --soot:#E8E4D8; --soot-2:#9C968A; --riot-ink:#FF5C4E; --on-riot:#121110; }
+      :root {
+        --paper:   #08110E;
+        --panel:   #0F1B17;
+        --ink:     #E8F2ED;
+        --mute:    #94AAA2;
+        --mint:    #8FE3C4;
+        --pine:    #A8CFC0;
+        --ice-ink: #79C2F0;
+        --line:    color-mix(in srgb, var(--ink) 15%, transparent);
+        --tag-bg:  #8FE3C4;
+        --tag-fg:  #08110E;
+      }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100svh;
-      display: grid; place-items: center;
-      padding: 32px clamp(20px, 5.5vw, 48px);
-      background: var(--news);
-      color: var(--soot);
-      font-family: var(--type);
-      font-size: 15px; line-height: 1.65;
+      display: grid;
+      place-items: center;
+      padding: clamp(20px, 5vw, 56px);
+      background:
+        radial-gradient(680px 520px at 82% -8%, color-mix(in srgb, var(--mint) 40%, transparent), transparent 68%),
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
-    .dirt {
-      position: fixed; inset: -20%;
-      pointer-events: none; z-index: 9;
-      opacity: .3; mix-blend-mode: multiply;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/></filter><rect width='220' height='220' filter='url(%23n)' opacity='.55'/></svg>");
-    }
-    @media (prefers-color-scheme: dark) { .dirt { mix-blend-mode: screen; opacity: .15; } }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--mint); color: var(--pine); }
+    :focus-visible { outline: 3px solid var(--ice-ink); outline-offset: 3px; border-radius: 4px; }
 
-    .sheet { position: relative; z-index: 1; width: 100%; max-width: 560px; }
-
-    .kicker {
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--soot-2);
-      padding-bottom: 12px; margin-bottom: clamp(20px, 6vw, 34px);
-      border-bottom: 2px solid var(--soot);
+    .box {
+      position: relative;
+      width: min(540px, 100%);
+      padding: clamp(30px, 5vw, 40px) clamp(22px, 4vw, 34px) clamp(24px, 3vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--panel);
+      box-shadow: 0 40px 70px -52px color-mix(in srgb, var(--pine) 70%, transparent);
+      animation: rise .7s var(--ease) both;
     }
-    .kicker::before { content: "▮ "; color: var(--riot-ink); }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .who {
+      position: absolute; top: -13px; left: clamp(18px, 3vw, 28px);
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 5px 13px 6px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      font-family: var(--mono);
+      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .who svg { width: 9px; height: 9px; fill: currentColor; }
 
     .code {
-      font-family: var(--stencil); font-weight: 700;
-      font-size: clamp(96px, 34vw, 210px);
-      line-height: .78; letter-spacing: -.03em;
-      color: var(--riot-ink);
-      translate: -.06em 0;
+      display: inline-block;
+      font-family: var(--display);
+      font-size: clamp(64px, 18vw, 112px);
+      line-height: .9;
+      letter-spacing: -.03em;
+      color: var(--ice-ink);
+      background: linear-gradient(var(--mint), var(--mint)) 0 .68em / 100% .11em no-repeat;
     }
 
     h1 {
-      display: inline-block;
-      margin: 18px 0 20px;
-      padding: 6px 15px 8px;
-      background: var(--riot); color: var(--on-riot);
-      font-family: var(--stencil); font-weight: 500;
-      font-size: clamp(17px, 4.2vw, 24px);
-      letter-spacing: .1em; text-transform: uppercase;
-      rotate: -1.2deg;
+      margin-top: 20px;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(24px, 4.4vw, 32px);
+      line-height: 1.3;
+      letter-spacing: -.01em;
     }
 
-    .note { max-width: 44ch; color: var(--soot-2); }
+    .note {
+      margin-top: 12px;
+      max-width: 38ch;
+      font-size: 15px;
+      color: var(--mute);
+      text-wrap: pretty;
+    }
 
     .back {
-      display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 30px;
-      padding: 13px 20px 14px;
-      border: 2px solid var(--soot);
-      box-shadow: 5px 5px 0 var(--soot);
-      font-family: var(--stencil); font-weight: 700;
-      font-size: 17px; letter-spacing: .06em; text-transform: uppercase;
-      color: inherit; text-decoration: none;
-      rotate: -.4deg;
-      transition: translate .16s var(--ease), rotate .16s var(--ease), background-color .16s, box-shadow .16s var(--ease);
+      display: inline-flex; align-items: center; gap: 9px;
+      margin-top: 26px;
+      padding: 12px 20px 13px;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--pine);
+      font-family: var(--mono);
+      font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+      transition: translate .16s var(--ease), box-shadow .16s var(--ease);
     }
-    .back:hover, .back:focus-visible {
-      background: var(--riot); color: var(--on-riot);
-      rotate: 0deg; translate: -3px -3px;
-      box-shadow: 9px 9px 0 var(--soot);
-    }
-    .back:active { rotate: 0deg; translate: 3px 3px; box-shadow: 1px 1px 0 var(--soot); }
-    :focus-visible { outline: 3px solid var(--riot-ink); outline-offset: 3px; }
+    .back:hover { translate: 0 -2px; box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--pine) 70%, transparent); }
+    .back:active { translate: 0 1px; box-shadow: none; }
 
-    .scrawl {
-      display: block; margin-top: 26px;
-      font-family: var(--marker); font-weight: 700;
-      font-size: clamp(20px, 5vw, 26px);
-      color: var(--riot-ink);
-      rotate: -2.5deg;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
     }
-
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
-  <div class="dirt" aria-hidden="true"></div>
-
-  <div class="sheet">
-    <p class="kicker">самиздат № 43 · брак тиража</p>
+  <main class="box">
+    <span class="who">
+      <svg viewBox="0 0 10 10" aria-hidden="true"><rect width="4" height="10" rx="1"/></svg>
+      samuray43k
+    </span>
     <p class="code" aria-hidden="true">404</p>
-    <h1>лист не отпечатался</h1>
-    <p class="note">Такой страницы здесь нет: либо её съел ксерокс, либо ссылка была с опечаткой.</p>
-    <a class="back" href="/">← на первую полосу</a>
-    <span class="scrawl">всё остальное на месте</span>
-  </div>
+    <h1>такой сцены нет</h1>
+    <p class="note">Ссылка ведёт в пустоту: либо в адресе опечатка, либо страницу уже вырезали.</p>
+    <a class="back" href="/"><span aria-hidden="true">◂</span> Вернуться на первую</a>
+  </main>
 </body>
 </html>
