@@ -342,7 +342,13 @@ h1 > span {
   background: #fffaf0;
   border-radius: 150px 150px 15px 15px;
   box-shadow: 0 16px 35px -15px #3f4b3b40;
-  transition: transform 0.5s;
+  --tilt: 0deg;
+  --lift: 0px;
+  --rx: 0deg;
+  --ry: 0deg;
+  transform: perspective(900px) rotate(var(--tilt)) translateY(var(--lift))
+    rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .character-window {
   height: 335px;
@@ -354,7 +360,7 @@ h1 > span {
 .mahiru {
   top: 7px;
   left: 2%;
-  transform: rotate(-8deg);
+  --tilt: -8deg;
   z-index: 1;
 }
 .mahiru .character-window {
@@ -363,7 +369,7 @@ h1 > span {
 .huohuo {
   right: -1%;
   top: 69px;
-  transform: rotate(8deg);
+  --tilt: 8deg;
   z-index: 2;
   background: #f1f8ee;
 }
@@ -381,14 +387,16 @@ h1 > span {
   width: auto;
   left: 50%;
   top: 3px;
-  transform: translateX(-50%);
+  transform: translate(calc(-50% + var(--px, 0px)), var(--py, 0px));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .huohuo img {
   height: 420px;
   width: auto;
   left: 50%;
   top: -19px;
-  transform: translateX(-50%);
+  transform: translate(calc(-50% + var(--px, 0px)), var(--py, 0px));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .character-kanji {
   position: absolute;
@@ -476,10 +484,12 @@ h1 > span {
   color: var(--muted);
 }
 [data-mood="mahiru"] .mahiru {
-  transform: rotate(-4deg) translateY(-7px);
+  --tilt: -4deg;
+  --lift: -7px;
 }
 [data-mood="huohuo"] .huohuo {
-  transform: rotate(4deg) translateY(-7px);
+  --tilt: 4deg;
+  --lift: -7px;
 }
 .connections {
   padding-top: 24px;
@@ -1097,5 +1107,87 @@ h1 > span {
 @media (max-width: 370px) {
   .mahiru b {
     font-size: 14px;
+  }
+}
+
+/* Живые персонажи: наклон за курсором, реплики по клику. */
+.artwork.is-tilting .character,
+.artwork.is-tilting .character img {
+  transition-duration: 0.15s;
+}
+.character-poke {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  border-radius: inherit;
+  cursor: pointer;
+}
+.character-poke:focus-visible {
+  outline-offset: 4px;
+}
+.character.is-poked {
+  animation: poke 0.45s ease-out;
+}
+@keyframes poke {
+  30% {
+    scale: 1.04 0.97;
+  }
+  60% {
+    scale: 0.98 1.03;
+  }
+}
+.bubble {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  bottom: calc(100% - 38px);
+  width: max-content;
+  max-width: 190px;
+  padding: 9px 13px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 10px 25px -12px #263f3760;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.2;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  translate: -50% 8px;
+  transition:
+    opacity 0.25s,
+    translate 0.25s;
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--line);
+  border-width: 0 1px 1px 0;
+  background: var(--surface);
+  translate: -50% -50%;
+  rotate: 45deg;
+}
+.bubble.is-visible {
+  opacity: 1;
+  translate: -50% 0;
+}
+.huohuo .bubble {
+  bottom: calc(100% - 20px);
+}
+@media (max-width: 720px) {
+  .bubble {
+    max-width: 150px;
+    font-size: 15px;
   }
 }
