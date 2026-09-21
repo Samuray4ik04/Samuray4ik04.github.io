@@ -52,6 +52,7 @@
     />
 
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/now.css" />
     <script>
       try {
         const mood = localStorage.getItem("samuray-mood");
@@ -244,6 +245,55 @@
           </ul>
         </section>
 
+        <section class="now" aria-labelledby="now-title">
+          <div class="section-heading">
+            <h2 id="now-title">Сейчас</h2>
+            <span>чем живу в эти дни <span aria-hidden="true">↘</span></span>
+          </div>
+          <ul class="bento">
+            <li class="bento-cell bento-code">
+              <span class="small-label">вайбкожу</span>
+              <a
+                class="bento-repo"
+                id="now-repo"
+                href="https://github.com/Samuray4ik04"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Samuray4ik04.github.io <span aria-hidden="true">↗</span></a
+              >
+              <p class="bento-note" id="now-pushed">этот сайт — мой полигон</p>
+              <pre class="bento-terminal" aria-hidden="true"><span>$</span> git commit -m "ещё чуть-чуть уюта"
+<span>$</span> git push
+<i>✓ опубликовано</i></pre>
+              <ul class="bento-stack" aria-label="Стек">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+              </ul>
+            </li>
+            <li class="bento-cell bento-watch">
+              <span class="small-label">смотрю</span>
+              <strong>Ангел по соседству</strong>
+              <p class="bento-note">Махиру, бенто и тихий уют</p>
+              <span class="bento-glyph" aria-hidden="true">☀</span>
+            </li>
+            <li class="bento-cell bento-play">
+              <span class="small-label">играю</span>
+              <strong>Honkai: Star Rail</strong>
+              <p class="bento-note">Хохо в отряде, Хвостик — тоже</p>
+              <span class="bento-glyph" aria-hidden="true">✧</span>
+            </li>
+            <li class="bento-cell bento-listen">
+              <span class="small-label">слушаю</span>
+              <strong>lo-fi под ночной код</strong>
+              <span class="equalizer" aria-hidden="true"
+                ><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+              ></span>
+            </li>
+          </ul>
+        </section>
+
         <section class="thought" aria-label="Немного тепла">
           <span class="thought-flower" aria-hidden="true">✳</span>
           <div class="thought-copy">
@@ -291,5 +341,6 @@
     </div>
     <script src="assets/site.js"></script>
     <script src="assets/characters.js"></script>
+    <script src="assets/now.js"></script>
   </body>
 </html>
